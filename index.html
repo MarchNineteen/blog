@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Marcher</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Marcher">
+<meta property="og:url" content="https://marchnineteen.github.io/index.html">
+<meta property="og:site_name" content="Marcher">
+<meta property="article:author" content="Marcher">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Marcher" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Marcher</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://marchnineteen.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-other/hangzhoumetro2025" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2020/04/10/other/hangzhoumetro2025/" class="article-date">
+  <time datetime="2020-04-10T00:00:00.000Z" itemprop="datePublished">2020-04-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/other/">other</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2020/04/10/other/hangzhoumetro2025/">杭州地铁规划2025</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="杭州地铁规划2025"><a href="#杭州地铁规划2025" class="headerlink" title="杭州地铁规划2025"></a>杭州地铁规划2025</h1><p><img src="/uploads/other/%E6%9D%AD%E5%B7%9E%E5%9C%B0%E9%93%81%E8%A7%84%E5%88%922025.jpg" alt="杭州地铁规划2025.jpg"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://marchnineteen.github.io/2020/04/10/other/hangzhoumetro2025/" data-id="ckam2zs18000tmeq3g0hx5s6l" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-java/javase/streamApiAction" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2020/01/11/java/javase/streamApiAction/" class="article-date">
+  <time datetime="2020-01-11T00:00:00.000Z" itemprop="datePublished">2020-01-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/JavaSE/">JavaSE</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2020/01/11/java/javase/streamApiAction/">java 1.8  steam流操作</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://github.com/MarchNineteen/spring-example/blob/master/spring-example-test/src/main/java/com/wyb/test/java/java8/StreamApiAction.java" target="_blank" rel="noopener">相应源码地址</a></p>
+<h2 id="流操作类型"><a href="#流操作类型" class="headerlink" title="流操作类型"></a>流操作类型</h2><h3 id="中间操作"><a href="#中间操作" class="headerlink" title="中间操作"></a>中间操作</h3><p>目的是打开一个流，做出一些操作或者映射后，会返回一个新的流交给下个操作。lazy的，在调用方式时并没有真正执行。</p>
+<h3 id="终止操作"><a href="#终止操作" class="headerlink" title="终止操作"></a>终止操作</h3><p>在执行这个操作后，流被使用，在出现终止操作时才会调用之前的所有方法。</p>
+<h3 id="short-circuiting"><a href="#short-circuiting" class="headerlink" title="short-circuiting"></a>short-circuiting</h3><p>对于一个 intermediate 操作，如果它接受的是一个无限大（infinite/unbounded）的 Stream，但返回一个有限的新 Stream。<br>对于一个 terminal 操作，如果它接受的是一个无限大的 Stream，但能在有限的时间计算出结果。</p>
+<h2 id="具体流操作"><a href="#具体流操作" class="headerlink" title="具体流操作"></a>具体流操作</h2><h3 id="中间操作-1"><a href="#中间操作-1" class="headerlink" title="中间操作"></a>中间操作</h3><ul>
+<li>map (mapToInt, flatMap 等)</li>
+</ul>
+<p>把input Stream 的每一个元素，映射成 output Stream 的另外一个元素。</p>
+<p>map一对一</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;list中数的平方</span><br><span class="line">list.stream().map(v -&gt; v * v)</span><br></pre></td></tr></table></figure>
+
+<p>flatMap一对多 多对多 映射,把流扁平化，多个流转化成流里所有元素的单个流。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Integer&gt; list1 &#x3D; Arrays.asList(1, 2, 3, 4, 5);</span><br><span class="line">List&lt;Integer&gt; list2 &#x3D; Arrays.asList(6, 7, 8, 9, 10);</span><br><span class="line">List&lt;List&lt;Integer&gt;&gt; allList &#x3D; new ArrayList&lt;&gt;();</span><br><span class="line">allList.add(list1);</span><br><span class="line">allList.add(list2);</span><br><span class="line">        </span><br><span class="line">allList.stream().flatMap(v -&gt; v.stream()).forEach(System.out::println);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>filter </li>
+</ul>
+<p>过滤,对元素进行某种条件过滤，留下符合的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 留下偶数</span><br><span class="line">list.stream().filter(v -&gt; v % 2 &#x3D;&#x3D; 0).forEach(System.out::println);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>distinct </li>
+</ul>
+<p>去重，不接收方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">list.stream().distinct().forEach(System.out::println);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>sorted</li>
+</ul>
+<p>排序，接受一个Comparator，或者默认顺序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">list.stream().sorted()</span><br><span class="line">list.stream().sorted((o1, o2) -&gt; -1)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>peek</li>
+</ul>
+<p>peek 对每个元素执行操作并返回一个新的 Stream。类似foreach，foreach是终止操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">list &#x3D; list.stream().peek(System.out::println).collect(Collectors.toList());</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>limit</li>
+</ul>
+<p>返回 Stream 的前面 n 个元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">list.stream().limit(2).forEach(System.out::println);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>skip</li>
+</ul>
+<p>扔掉前 n 个元素（它是由一个叫 subStream 的方法改名而来）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">list.stream().skip(2).forEach(System.out::println);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>parallel</li>
+</ul>
+<p>转行成并行流，进行多线程操作，顺序会改变。可以使用forEachOrdered，固定顺序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">list.stream().parallel().forEach(System.out::println);</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">1</span><br><span class="line">5</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>sequential</li>
+</ul>
+<p>并行流转为串行流</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">list.parallelStream().forEach(System.out::println);</span><br><span class="line">list.parallelStream().sequential().forEach(System.out::println);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>unordered</li>
+</ul>
+<p><strong>消除了必须保持有序的流的约束</strong>,返回一个无序的等效的Stream，可能返回的是Stream本身，因为该Stream已经是无序的，或者该Stream的底层状态被修改为了无序.<br>一般用于并行的时候。例如TreeSet，或者流操作中指定顺序，会取消排序和指定顺序无效。</p>
+<h3 id="终止操作-1"><a href="#终止操作-1" class="headerlink" title="终止操作"></a>终止操作</h3><ul>
+<li>forEach</li>
+</ul>
+<p>forEach 不能修改自己包含的本地变量值，也不能用 break/return 之类的关键字提前结束循环。</p>
+<ul>
+<li><p>forEachOrdered</p>
+</li>
+<li><p>toArray</p>
+</li>
+<li><p>reduce</p>
+</li>
+</ul>
+<p>这个方法的主要作用是把 Stream 元素组合起来。它提供一个起始值（种子），然后依照运算规则（BinaryOperator），和前面 Stream 的第一个、第二个、第 n 个元素组合。<br>从这个意义上说，字符串拼接、数值的 sum、min、max、average 都是特殊的 reduce。</p>
+<p>注意：没有起始值，返回对象为Optional</p>
+<ul>
+<li>collect</li>
+</ul>
+<p>两个方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;R&gt; R collect(Supplier&lt;R&gt; supplier,</span><br><span class="line">                  BiConsumer&lt;R, ? super T&gt; accumulator,</span><br><span class="line">                  BiConsumer&lt;R, R&gt; combiner);</span><br><span class="line">                  </span><br><span class="line">IntStream i &#x3D; IntStream.of(6,5,7,1, 2, 3, 3);</span><br><span class="line">  List&lt;Integer&gt; v &#x3D; i</span><br><span class="line">      .collect(ArrayList::new, ArrayList::add, ArrayList::addAll);</span><br><span class="line">  </span><br><span class="line">  System.out.println(v);</span><br><span class="line"></span><br><span class="line">&lt;R, A&gt; R collect(Collector&lt;? super T, A, R&gt; collector);</span><br></pre></td></tr></table></figure>
+
+<p>Collector在后面重点讲解</p>
+<ul>
+<li><p>min</p>
+</li>
+<li><p>max</p>
+</li>
+<li><p>count</p>
+</li>
+<li><p>anyMatch</p>
+</li>
+<li><p>allMatch</p>
+</li>
+<li><p>noneMatch</p>
+</li>
+<li><p>findFirst</p>
+</li>
+<li><p>findAny</p>
+</li>
+<li><p>iterator</p>
+</li>
+</ul>
+<h3 id="Short-circuiting"><a href="#Short-circuiting" class="headerlink" title="Short-circuiting"></a>Short-circuiting</h3><ul>
+<li><p>anyMatch</p>
+</li>
+<li><p>allMatch </p>
+</li>
+<li><p>noneMatch</p>
+</li>
+<li><p>findFirst </p>
+</li>
+<li><p>findAny </p>
+</li>
+<li><p>limit</p>
+</li>
+</ul>
+<h2 id="Collectors"><a href="#Collectors" class="headerlink" title="Collectors"></a>Collectors</h2><p>要作用就是辅助进行各类有用的 reduction 操作，例如转变输出为 Collection，把 Stream 元素进行归组。</p>
+<ul>
+<li>类型归纳 </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Collectors.toList();</span><br><span class="line">Collectors.toMap();</span><br><span class="line">Collectors.toSet();</span><br><span class="line">Collectors.toCollection();</span><br><span class="line">Collectors.toConcurrentMap();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>joining</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; strList = Arrays.asList(<span class="string">"aa"</span>, <span class="string">"bb"</span>, <span class="string">"cc"</span>, <span class="string">"dd"</span>, <span class="string">"ee"</span>);</span><br><span class="line">String s = strList.stream().collect(Collectors.joining());</span><br><span class="line">System.out.println(s);</span><br><span class="line"><span class="comment">// 逗号连接</span></span><br><span class="line">s = strList.stream().collect(Collectors.joining(<span class="string">","</span>));</span><br><span class="line">System.out.println(s);</span><br><span class="line"><span class="comment">// 逗号连接</span></span><br><span class="line">s = strList.stream().collect(Collectors.joining(<span class="string">","</span>, <span class="string">"["</span>, <span class="string">"]"</span>));</span><br><span class="line">System.out.println(s);</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">- collectingAndThen</span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line">s = strList.stream().collect(Collectors.collectingAndThen(Collectors.joining(<span class="string">","</span>), String::toUpperCase));</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>groupingBy groupingByConcurrent</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;Integer, List&lt;String&gt;&gt; map = strList.stream().collect(Collectors.groupingBy(String::length));</span><br><span class="line">map.keySet().forEach(v -&gt; map.get(v).forEach(System.out::println));</span><br><span class="line">    </span><br><span class="line">Map&lt;Integer, Set&lt;String&gt;&gt; map1 = strList.stream().collect(Collectors.groupingBy(String::length, Collectors.toSet();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>partitioningBy</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;Boolean, List&lt;Integer&gt;&gt; mapBoolean = list.stream().collect(Collectors.partitioningBy(v -&gt; v % <span class="number">2</span> == <span class="number">0</span>));</span><br><span class="line">mapBoolean.keySet().forEach(v -&gt; mapBoolean.get(v).forEach(System.out::println));</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>summingInt/Double/Long summarizingInt/Double/Long</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://marchnineteen.github.io/2020/01/11/java/javase/streamApiAction/" data-id="ckam2zs2b002bmeq3bvydd0mn" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-active/miaosha" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/12/20/active/miaosha/" class="article-date">
+  <time datetime="2019-12-20T00:00:00.000Z" itemprop="datePublished">2019-12-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/active/">active</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/12/20/active/miaosha/">秒杀场景</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="秒杀场景可能遇到的问题（用户流程角度）"><a href="#秒杀场景可能遇到的问题（用户流程角度）" class="headerlink" title="秒杀场景可能遇到的问题（用户流程角度）"></a>秒杀场景可能遇到的问题（用户流程角度）</h1><ul>
+<li><p>问题一.即将到秒杀时间，同时请求网页过多，打开网页速度慢</p>
+</li>
+<li><p>问题二.进入页面后，未到秒杀时间，用户一直点击购买按钮，一直发起请求</p>
+</li>
+<li><p>问题三.用户拿到接口地址，恶意请求（用脚本）</p>
+</li>
+<li><p>问题四.超卖现象</p>
+</li>
+<li><p>问题五.数据库请求过多，数据库奔溃</p>
+</li>
+</ul>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><h2 id="问题一"><a href="#问题一" class="headerlink" title="问题一"></a>问题一</h2><ul>
+<li><p>针对于动态页面（jsp，ftl）可以把整个页面存储在redis中，避免页面渲染。</p>
+</li>
+<li><p>前后端分离项目，页面单独部署，使用cdn加速，资源静态</p>
+</li>
+<li><p>打开网页速度慢，除了页面的原因外，后台请求返回慢也有很大的关系，简单说就是后台高并发能力不足，一遇到此类场景，cpu，内存飚升，程序响应慢。单台tomcat并发量不足，可以集群部署然后使用nginx做负载均衡，恶意请求也可以在此拦截。</p>
+</li>
+<li><p>后台对请求限流</p>
+</li>
+</ul>
+<h2 id="问题二"><a href="#问题二" class="headerlink" title="问题二"></a>问题二</h2><ul>
+<li>页面按钮控制，未到时间按钮不能点击，需要页面定时请求后台获取最新的北京时间，不能以页面本地时间为准</li>
+<li>在用户点击过后，再把按钮设置无效，防止无效重复点击</li>
+</ul>
+<h2 id="问题三"><a href="#问题三" class="headerlink" title="问题三"></a>问题三</h2><p>接口地址动态化，通过MD5之类的加密算法加密随机的字符串去做url，然后通过前端代码获取url后台校验才能通过</p>
+<h2 id="问题四"><a href="#问题四" class="headerlink" title="问题四"></a>问题四</h2><h3 id="处理流程："><a href="#处理流程：" class="headerlink" title="处理流程："></a>处理流程：</h3><p>典型的读多先少场景，使用mysql等nosql，把库存存入redis中，进行库存预热。通过三级缓冲保证数据库压力，本地内存标记，库存修改在redis中进行预存，接着通过mq进行异步下单，处理数据库。若下单成功，页面轮询接口返回订单处理状态。</p>
+<h3 id="解决超卖方案"><a href="#解决超卖方案" class="headerlink" title="解决超卖方案"></a>解决超卖方案</h3><ul>
+<li>防止数据库内存为0，在修改时进行库存判断，大于0才更新。</li>
+<li>用户id与商品id建立唯一所以，防止同一用户重复购买同一件商品。</li>
+<li>实现乐观锁，商品信息中年增加version字段。每次更新时version+1，更新时候带上版本号，当提交前版本号等于更新前版本号，说明此时没有被其他线程影响到，正常更新，如果冲突了则不会进行提交更新。当库存是足够的情况下发生乐观锁冲突就进行一定次数的重试。</li>
+</ul>
+<p>一整套解决方案</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/11/16/16e72d24415cb009?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="秒杀"></p>
+<h2 id="产生更多的问题"><a href="#产生更多的问题" class="headerlink" title="产生更多的问题"></a>产生更多的问题</h2><ul>
+<li>redis集群，数据同步,分布式锁等</li>
+<li>mq高可用</li>
+<li>限流&amp;降级&amp;熔断&amp;隔离</li>
+<li>分布式服务，事务处理。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://marchnineteen.github.io/2019/12/20/active/miaosha/" data-id="ckam2zs080003meq36yz733ib" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-spring/beanLifeCycle" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/12/06/spring/beanLifeCycle/" class="article-date">
+  <time datetime="2019-12-06T00:00:00.000Z" itemprop="datePublished">2019-12-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/spring/">spring</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/12/06/spring/beanLifeCycle/">Spring Bean 生命周期</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h1><p><img src="/uploads/spring/springBeanLifeCycle.png" alt="生命周期"></p>
+<h1 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h1><p><img src="/uploads/spring/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8Fspringbean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.jpg" alt="单例模式生命周期"></p>
+<h1 id="多例模式"><a href="#多例模式" class="headerlink" title="多例模式"></a>多例模式</h1><p>需求主动调用才会创建对象，原因见下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LifeCycle lifeCycle &#x3D; (LifeCycle) applicationContext.getBean(&quot;lifeCycle&quot;);</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/uploads/spring/%E5%A4%9A%E4%BE%8B%E6%A8%A1%E5%BC%8Fspringbean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.jpg" alt="多例模式生命周期"></p>
+<h1 id="两者区别"><a href="#两者区别" class="headerlink" title="两者区别"></a>两者区别</h1><h2 id="单例模式-1"><a href="#单例模式-1" class="headerlink" title="单例模式"></a>单例模式</h2><p>bean在单例模式下，spring容器启动时解析xml文件发现该bean标签后，直接创建该bean对象存入内部map中保存，<br>此后无论调用多少次getBean()获取该bean都是从map中获取该对象返回，一直是一个对象。<br>此对象一直被spring容器持有，直到容器推出时，随着容器的退出对象被销毁。</p>
+<h2 id="多例模式-1"><a href="#多例模式-1" class="headerlink" title="多例模式"></a>多例模式</h2><p>bean在多例模式下，spring容器启动时解析xml发下该bean标签后，只是将该bean进行管理，并不会创建对象，<br>此后每层使用getBean()获取该bean时，spring都会重新创建该对象返回，每层都是一个新的对象。<br>这个对象spring容器并不会持有，什么时候销毁却决于该对象的用户自己什么时候销毁该对象。</p>
+<h1 id="相应测试源码"><a href="#相应测试源码" class="headerlink" title="相应测试源码"></a><a href="https://github.com/MarchNineteen/spring-example/blob/master/spring-example-test/src/main/java/com/wyb/test/spring/bean/LifeCycle.java" target="_blank" rel="noopener">相应测试源码</a></h1>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://marchnineteen.github.io/2019/12/06/spring/beanLifeCycle/" data-id="ckam2zs1a000xmeq3ehrb6ro9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-spring/springLoadXml" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/12/06/spring/springLoadXml/" class="article-date">
+  <time datetime="2019-12-06T00:00:00.000Z" itemprop="datePublished">2019-12-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/spring/">spring</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/12/06/spring/springLoadXml/">Spring 加载XML文件的六种方式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一-XmlBeanFactory-引用资源"><a href="#一-XmlBeanFactory-引用资源" class="headerlink" title="一: XmlBeanFactory 引用资源"></a>一: XmlBeanFactory 引用资源</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Resource resource &#x3D; new ClassPathResource(&quot;appcontext.xml&quot;);</span><br><span class="line">BeanFactory factory &#x3D; new XmlBeanFactory(resource);</span><br><span class="line">BaseEntity entity &#x3D; (BaseEntity) factory.getBean(&quot;baseEntity1&quot;);</span><br><span class="line">System.out.println(&quot;XmlBeanFactory 获取 bean ：&quot; + entity.getId());</span><br></pre></td></tr></table></figure>
+
+<h1 id="二-ClassPathXmlApplicationContext-编译路径"><a href="#二-ClassPathXmlApplicationContext-编译路径" class="headerlink" title="二: ClassPathXmlApplicationContext  编译路径"></a>二: ClassPathXmlApplicationContext  编译路径</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 单个文件</span><br><span class="line">ApplicationContext applicationContext &#x3D; new ClassPathXmlApplicationContext(&quot;classpath:appcontext.xml&quot;);</span><br><span class="line">&#x2F;&#x2F; 多个文件</span><br><span class="line">ApplicationContext multiApplicationContext &#x3D; new ClassPathXmlApplicationContext(&quot;classpath:appcontext.xml&quot;, &quot;classpath:appcontext2.xml&quot;);</span><br><span class="line">BaseEntity entity &#x3D; (BaseEntity) applicationContext.getBean(&quot;baseEntity&quot;);</span><br><span class="line"></span><br><span class="line">BaseEntity entity2 &#x3D; (BaseEntity) multiApplicationContext.getBean(&quot;baseEntity2&quot;);</span><br><span class="line">System.out.println(&quot;ClassPathXmlApplicationContext 获取 bean ：&quot; + entity.getId());</span><br><span class="line">System.out.println(&quot;ClassPathXmlApplicationContext 获取 bean2 ：&quot; + entity2.getId());</span><br></pre></td></tr></table></figure>
+
+<h1 id="三-用文件系统的路径"><a href="#三-用文件系统的路径" class="headerlink" title="三: 用文件系统的路径"></a>三: 用文件系统的路径</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; classPath</span><br><span class="line">ApplicationContext fileSystemXmlApplicationContext &#x3D; new FileSystemXmlApplicationContext(&quot;classpath:appcontext.xml&quot;);</span><br><span class="line">&#x2F;&#x2F; 文件系统</span><br><span class="line">ApplicationContext fileSystemXmlApplicationContext2 &#x3D; new FileSystemXmlApplicationContext(&quot;spring-example-test&#x2F;src&#x2F;main&#x2F;resources&#x2F;appcontext.xml&quot;);</span><br><span class="line">ApplicationContext fileSystemXmlApplicationContext3 &#x3D; new FileSystemXmlApplicationContext(&quot;file:E:\\marcher\\spring-example\\spring-example-test\\src\\main\\resources&#x2F;appcontext.xml&quot;);</span><br><span class="line">ApplicationContext fileSystemXmlApplicationContext4 &#x3D; new FileSystemXmlApplicationContext(&quot;E:\\marcher\\spring-example\\spring-example-test\\src\\main\\resources&#x2F;appcontext.xml&quot;);</span><br><span class="line"></span><br><span class="line">BaseEntity entity &#x3D; (BaseEntity) fileSystemXmlApplicationContext.getBean(&quot;baseEntity&quot;);</span><br><span class="line">System.out.println(&quot;ClassPathXmlApplicationContext 获取 bean ：&quot; + entity.getId());</span><br><span class="line"></span><br><span class="line">BaseEntity entity2 &#x3D; (BaseEntity) fileSystemXmlApplicationContext2.getBean(&quot;baseEntity&quot;);</span><br><span class="line">System.out.println(&quot;ClassPathXmlApplicationContext 获取 bean ：&quot; + entity2.getId());</span><br><span class="line"></span><br><span class="line">BaseEntity entity3 &#x3D; (BaseEntity) fileSystemXmlApplicationContext3.getBean(&quot;baseEntity&quot;);</span><br><span class="line">System.out.println(&quot;ClassPathXmlApplicationContext 获取 bean ：&quot; + entity2.getId());</span><br><span class="line"></span><br><span class="line">BaseEntity entity4 &#x3D; (BaseEntity) fileSystemXmlApplicationContext4.getBean(&quot;baseEntity&quot;);</span><br><span class="line">System.out.println(&quot;ClassPathXmlApplicationContext 获取 bean ：&quot; + entity2.getId());</span><br></pre></td></tr></table></figure>
+
+<h1 id="四-XmlWebApplicationContext是专为Web工程定制的。"><a href="#四-XmlWebApplicationContext是专为Web工程定制的。" class="headerlink" title="四: XmlWebApplicationContext是专为Web工程定制的。"></a>四: XmlWebApplicationContext是专为Web工程定制的。</h1><p>ServletContext servletContext = request.getSession().getServletContext();<br>ApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(servletContext ); </p>
+<h1 id="五-使用BeanFactory"><a href="#五-使用BeanFactory" class="headerlink" title="五: 使用BeanFactory"></a>五: 使用BeanFactory</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">BeanDefinitionRegistry reg &#x3D; new DefaultListableBeanFactory();</span><br><span class="line">XmlBeanDefinitionReader reader &#x3D; new XmlBeanDefinitionReader(reg);</span><br><span class="line">reader.loadBeanDefinitions(new ClassPathResource(&quot;appcontext.xml&quot;));</span><br><span class="line">reader.loadBeanDefinitions(new ClassPathResource(&quot;appcontext2.xml&quot;));</span><br><span class="line">BeanFactory bf &#x3D; (BeanFactory) reg;</span><br><span class="line">BaseEntity entity &#x3D; (BaseEntity) bf.getBean(&quot;baseEntity&quot;);</span><br><span class="line">BaseEntity entity2 &#x3D; (BaseEntity) bf.getBean(&quot;baseEntity2&quot;);</span><br><span class="line">System.out.println(&quot;ClassPathXmlApplicationContext 获取 bean ：&quot; + entity.getId());</span><br><span class="line">System.out.println(&quot;ClassPathXmlApplicationContext 获取 bean ：&quot; + entity2.getId());</span><br></pre></td></tr></table></figure>
+
+<h1 id="六：Web-应用启动时加载多个配置文件"><a href="#六：Web-应用启动时加载多个配置文件" class="headerlink" title="六：Web 应用启动时加载多个配置文件"></a>六：Web 应用启动时加载多个配置文件</h1><p>通过ContextLoaderListener 也可加载多个配置文件，在web.xml文件中利用<br><context-pararn>元素来指定多个配置文件位置，其配置如下: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;context-param&gt;  </span><br><span class="line">    &lt;!-- Context Configuration locations for Spring XML files --&gt;  </span><br><span class="line">       &lt;param-name&gt;contextConfigLocation&lt;&#x2F;param-name&gt;  </span><br><span class="line">       &lt;param-value&gt;  </span><br><span class="line">       .&#x2F;WEB-INF&#x2F;**&#x2F;Appserver-resources.xml,  </span><br><span class="line">       classpath:config&#x2F;aer&#x2F;aerContext.xml,  </span><br><span class="line">       classpath:org&#x2F;codehaus&#x2F;xfire&#x2F;spring&#x2F;xfire.xml,  </span><br><span class="line">       .&#x2F;WEB-INF&#x2F;**&#x2F;*.spring.xml  </span><br><span class="line">       &lt;&#x2F;param-value&gt;  </span><br><span class="line">   &lt;&#x2F;context-param&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这个方法加载配置文件的前提是已经知道配置文件在哪里，虽然可以利用“*”通配符，但灵活度有限。 </p>
+<h1 id="获取配套代码"><a href="#获取配套代码" class="headerlink" title="获取配套代码"></a><a href="https://github.com/MarchNineteen/spring-example/tree/master/spring-example-test/src/main/java/com/wyb/test/spring/loadXml" target="_blank" rel="noopener">获取配套代码</a></h1>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://marchnineteen.github.io/2019/12/06/spring/springLoadXml/" data-id="ckam2zs1b000ymeq3agdpcojq" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-日常问题记录/springMVC&amp;swagger" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/11/27/%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/springMVC&swagger/" class="article-date">
+  <time datetime="2019-11-27T00:00:00.000Z" itemprop="datePublished">2019-11-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">日常问题记录</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/11/27/%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/springMVC&swagger/">springmvc整合swagger（非springboot项目）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="项目需求"><a href="#项目需求" class="headerlink" title="项目需求"></a>项目需求</h1><p>公司原来的项目是struts2，然后想要改成前后端分离项目，又不想完全抛去原来的一些东西，选择了单独的springmvc，没有使用springboot，这就开启了我的难受之旅。</p>
+<h1 id="需要依赖"><a href="#需要依赖" class="headerlink" title="需要依赖"></a>需要依赖</h1><p>万万没想到啊，还不是maven项目，jar包需要自己去探索到底需要哪些jar包，然后还得避免jar包冲突，我太南了…<br>过程中guava库需要升级 jackson库必须存在</p>
+<p>最后根据maven项目的所引入的依赖分析，然后自己测试，需要jar包如下：</p>
+<p><img src="/uploads/%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/swagger%E6%89%80%E9%9C%80jar.jpg" alt="swagger所需jar"></p>
+<p><a href="/uploads/日常问题记录/swagger.rar">下载</a></p>
+<h1 id="过程遇到的问题"><a href="#过程遇到的问题" class="headerlink" title="过程遇到的问题"></a>过程遇到的问题</h1><p>上述过程完成后，好不容易项目启动不报错了，但是访问swagger-ui.html，会出现弹框提示错误，这个错误网上随便一搜就会知道是swagger-ui的页面没有映射出来，需要加个静态资源映射。<br>但是并没有那么简单。</p>
+<p>网上搜索大部分搜索出来的都是在xml文件中添加swagger文件的映射，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;mvc:resources mapping&#x3D;&quot;swagger-ui.html&quot; location&#x3D;&quot;classpath*:&#x2F;META-INF&#x2F;resources&#x2F;&quot;&#x2F;&gt;</span><br><span class="line">&lt;mvc:resources mapping&#x3D;&quot;webjars&#x2F;**&quot; location&#x3D;&quot;classpath*:&#x2F;META-INF&#x2F;resources&#x2F;webjars&#x2F;&quot;&#x2F;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>但是在我的工程中没有效果，我也不知道为什么。</p>
+<p>解决办法一：</p>
+<p>由于项目还是采用web.xml格式配置，dispatcherServlet需拦截所有请求，如果加*.htm这种类型，生成的文档接口也必须手动修改访问路径，因为swagger是根据mapping去生成请求路径的。</p>
+<p>这样配置之后静态资源也会访问springMVC的servlet，这是我们不需要的，所以我们需要在springmvc.xml添加<a href="mvc:default-servlet-handler/">mvc:default-servlet-handler/</a>,添加一个默认servlet，会自动过滤静态资源请求。</p>
+<p>解决办法二：</p>
+<p>去swagger的网站下载zip包，把dist文件目录copy至自己的页面下，修改index.htm文件中的url地址, /v2/api-docs即为swagger访问数据的地址。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">window.onload &#x3D; function() &#123;</span><br><span class="line">  &#x2F;&#x2F; Begin Swagger UI call region</span><br><span class="line">  const ui &#x3D; SwaggerUIBundle(&#123;</span><br><span class="line">    &#x2F;&#x2F; url: &quot;https:&#x2F;&#x2F;petstore.swagger.io&#x2F;v2&#x2F;swagger.json&quot;,</span><br><span class="line">    url: &quot;http:&#x2F;&#x2F;xx.xx.xx&#x2F;v2&#x2F;api-docs&quot;,</span><br><span class="line">    dom_id: &#39;#swagger-ui&#39;,</span><br><span class="line">    deepLinking: true,</span><br><span class="line">    presets: [</span><br><span class="line">      SwaggerUIBundle.presets.apis,</span><br><span class="line">      SwaggerUIStandalonePreset</span><br><span class="line">    ],</span><br><span class="line">    plugins: [</span><br><span class="line">      SwaggerUIBundle.plugins.DownloadUrl</span><br><span class="line">    ],</span><br><span class="line">    layout: &quot;StandaloneLayout&quot;</span><br><span class="line">  &#125;)</span><br><span class="line">  &#x2F;&#x2F; End Swagger UI call region</span><br><span class="line"></span><br><span class="line">  window.ui &#x3D; ui</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样添加之后，我们需要去直接访问自己的页面地址，而不是访问swagger-ui.html，例如/swagger/index.html。<br>如果采用<em>.htm或者</em>.do这种方式，可能会出现页面访问得到的，提示/v2/api-docs接口无法请求。解决方案是配置把swagger或者数据的接口置入dispatcherServlet中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;servlet-mapping&gt;</span><br><span class="line">    &lt;servlet-name&gt;SpringmvcDispatcherServlet&lt;&#x2F;servlet-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;&#x2F;v2&#x2F;api-docs&lt;&#x2F;url-pattern&gt;</span><br><span class="line">&lt;&#x2F;servlet-mapping&gt;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://marchnineteen.github.io/2019/11/27/%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/springMVC&swagger/" data-id="ckam2zs1i0017meq3ef09dh1o" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-cache/index" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/10/25/cache/index/" class="article-date">
+  <time datetime="2019-10-25T00:00:00.000Z" itemprop="datePublished">2019-10-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/cache/">cache</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/10/25/cache/index/">缓存概要</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、缓存特征"><a href="#一、缓存特征" class="headerlink" title="一、缓存特征"></a>一、缓存特征</h1><h2 id="命中率"><a href="#命中率" class="headerlink" title="命中率"></a>命中率</h2><p>当某个请求能够通过访问缓存而得到响应时，称为缓存命中。</p>
+<p>缓存命中率越高，缓存的利用率也就越高。</p>
+<h2 id="最大空间"><a href="#最大空间" class="headerlink" title="最大空间"></a>最大空间</h2><p>缓存通常位于内存中，内存的空间通常比磁盘空间小的多，因此缓存的最大空间不可能非常大。</p>
+<p>当缓存存放的数据量超过最大空间时，就需要淘汰部分数据来存放新到达的数据。</p>
+<h2 id="淘汰策略"><a href="#淘汰策略" class="headerlink" title="淘汰策略"></a>淘汰策略</h2><ul>
+<li><p>FIFO（First In First Out）：先进先出策略，在实时性的场景下，需要经常访问最新的数据，那么就可以使用 FIFO，使得最先进入的数据（最晚的数据）被淘汰。</p>
+</li>
+<li><p>LRU（Least Recently Used）：最近最久未使用策略，优先淘汰最久未使用的数据，也就是上次被访问时间距离现在最久的数据。该策略可以保证内存中的数据都是热点数据，也就是经常被访问的数据，从而保证缓存命中率。</p>
+</li>
+<li><p>LFU（Least Frequently Used）：最不经常使用策略，优先淘汰一段时间内使用次数最少的数据。</p>
+</li>
+</ul>
+<h1 id="二、LRU"><a href="#二、LRU" class="headerlink" title="二、LRU"></a>二、LRU</h1><p>以下是基于 双向链表 + HashMap 的 LRU 算法实现，对算法的解释如下：</p>
+<p>访问某个节点时，将其从原来的位置删除，并重新插入到链表头部。这样就能保证链表尾部存储的就是最近最久未使用的节点，当节点数量大于缓存最大空间时就淘汰链表尾部的节点。<br>为了使删除操作时间复杂度为 O(1)，就不能采用遍历的方式找到某个节点。HashMap 存储着 Key 到节点的映射，通过 Key 就能以 O(1) 的时间得到节点，然后再以 O(1) 的时间将其从双向队列中删除。</p>
+<p><a href="https://github.com/MarchNineteen/spring-example/blob/master/spring-example-test/src/main/java/com/wyb/test/algorithms/cache/LRU.java" target="_blank" rel="noopener">LRU实现</a></p>
+<h1 id="三、CDN"><a href="#三、CDN" class="headerlink" title="三、CDN"></a>三、CDN</h1><p>内容分发网络（Content distribution network，CDN）是一种互连的网络系统，它利用更靠近用户的服务器从而更快更可靠地将 HTML、CSS、JavaScript、音乐、图片、视频等静态资源分发给用户。</p>
+<p>CDN 主要有以下优点：</p>
+<ul>
+<li>更快地将数据分发给用户；</li>
+<li>通过部署多台服务器，从而提高系统整体的带宽性能；</li>
+<li>多台服务器可以看成是一种冗余机制，从而具有高可用性。</li>
+</ul>
+<h1 id="四、缓存问题"><a href="#四、缓存问题" class="headerlink" title="四、缓存问题"></a>四、缓存问题</h1><h2 id="缓存穿透"><a href="#缓存穿透" class="headerlink" title="缓存穿透"></a>缓存穿透</h2><p>指对某一个一定不存在的数据进行请求，该请求会将穿透缓存到达数据库。</p>
+<p>解决方案：</p>
+<ul>
+<li>对这些不存在的数据缓存一个空数据</li>
+<li>对这类请求进行过滤</li>
+</ul>
+<h2 id="缓存雪崩"><a href="#缓存雪崩" class="headerlink" title="缓存雪崩"></a>缓存雪崩</h2><p>指的是由于数据没有被加载到缓存中，或者缓存数据在同一时间大面积失效（过期），又或者缓存服务器宕机，导致大量的请求都到达数据库。</p>
+<p>在有缓存的系统中，系统非常依赖于缓存，缓存分担了很大一部分的数据请求。当发生缓存雪崩时，数据库无法处理这么大的请求，导致数据库崩溃。</p>
+<p>解决方案：</p>
+<ul>
+<li>为了防止缓存在同一时间大面积过期导致的缓存雪崩，可以通过观察用户行为，合理设置缓存过期时间来实现；</li>
+<li>为了防止缓存服务器宕机出现的缓存雪崩，可以使用分布式缓存，分布式缓存中每一个节点只缓存部分的数据，当某个节点宕机时可以保证其它节点的缓存仍然可用。</li>
+<li>也可以进行缓存预热，避免在系统刚启动不久由于还未将大量数据进行缓存而导致缓存雪崩。</li>
+</ul>
+<h2 id="缓存一致性"><a href="#缓存一致性" class="headerlink" title="缓存一致性"></a>缓存一致性</h2><p>缓存一致性要求数据更新的同时缓存数据也能够实时更新。</p>
+<p>解决方案：</p>
+<ul>
+<li>在数据更新的同时立即去更新缓存；</li>
+<li>在读缓存之前先判断缓存是否是最新的，如果不是最新的先进行更新。</li>
+</ul>
+<h2 id="缓存-“无底洞”-现象"><a href="#缓存-“无底洞”-现象" class="headerlink" title="缓存 “无底洞” 现象"></a>缓存 “无底洞” 现象</h2><p>指的是为了满足业务要求添加了大量缓存节点，但是性能不但没有好转反而下降了的现象。</p>
+<p>产生原因：缓存系统通常采用 hash 函数将 key 映射到对应的缓存节点，随着缓存节点数目的增加，键值分布到更多的节点上，导致客户端一次批量操作会涉及多次网络操作，这意味着批量操作的耗时会随着节点数目的增加而不断增大。此外，网络连接数变多，对节点的性能也有一定影响。</p>
+<p>解决方案：</p>
+<ul>
+<li>优化批量数据操作命令；</li>
+<li>减少网络通信次数；</li>
+<li>降低接入成本，使用长连接 / 连接池，NIO 等。</li>
+</ul>
+<h1 id="五、数据分布"><a href="#五、数据分布" class="headerlink" title="五、数据分布"></a>五、数据分布</h1><h2 id="哈希分布"><a href="#哈希分布" class="headerlink" title="哈希分布"></a>哈希分布</h2><p>哈希分布就是将数据计算哈希值之后，按照哈希值分配到不同的节点上。例如有 N 个节点，数据的主键为 key，则将该数据分配的节点序号为：hash(key)%N。</p>
+<p>传统的哈希分布算法存在一个问题：当节点数量变化时，也就是 N 值变化，那么几乎所有的数据都需要重新分布，将导致大量的数据迁移。</p>
+<h2 id="顺序分布"><a href="#顺序分布" class="headerlink" title="顺序分布"></a>顺序分布</h2><p>将数据划分为多个连续的部分，按数据的 ID 或者时间分布到不同节点上。例如 User 表的 ID 范围为 1 ~ 7000，使用顺序分布可以将其划分成多个子表，对应的主键范围为 1 ~ 1000，1001 ~ 2000，…，6001 ~ 7000。</p>
+<p>顺序分布相比于哈希分布的主要优点如下：</p>
+<ul>
+<li>能保持数据原有的顺序；</li>
+<li>并且能够准确控制每台服务器存储的数据量，从而使得存储空间的利用率最大。</li>
+</ul>
+<h1 id="六、一致性哈希"><a href="#六、一致性哈希" class="headerlink" title="六、一致性哈希"></a>六、一致性哈希</h1><p>Distributed Hash Table（DHT） 是一种哈希分布方式，其目的是为了克服传统哈希分布在服务器节点数量变化时大量数据迁移的问题。</p>
+<h2 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h2><p>将哈希空间 [0, 2n-1] 看成一个哈希环，每个服务器节点都配置到哈希环上。每个数据对象通过哈希取模得到哈希值之后，存放到哈希环中顺时针方向第一个大于等于该哈希值的节点上。</p>
+<p><img src="/uploads/cache/%E4%B8%80%E8%87%B4%E6%80%A7hash%E5%8E%9F%E7%90%86%E5%9B%BE.jpg" alt="一致性hash原理图"></p>
+<p>一致性哈希在增加或者删除节点时只会影响到哈希环中相邻的节点，例如下图中新增节点 X，只需要将它前一个节点 C 上的数据重新进行分布即可，对于节点 A、B、D 都没有影响。</p>
+<p><img src="/uploads/cache/%E4%B8%80%E8%87%B4%E6%80%A7hash%E5%A2%9E%E5%8A%A0%E8%8A%82%E7%82%B9%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg" alt="一致性hash增加节点示意图"></p>
+<h2 id="虚拟节点"><a href="#虚拟节点" class="headerlink" title="虚拟节点"></a>虚拟节点</h2><p>上面描述的一致性哈希存在数据分布不均匀的问题，节点存储的数据量有可能会存在很大的不同。</p>
+<p>数据不均匀主要是因为节点在哈希环上分布的不均匀，这种情况在节点数量很少的情况下尤其明显。</p>
+<p>解决方式是通过增加虚拟节点，然后将虚拟节点映射到真实节点上。虚拟节点的数量比真实节点来得多，那么虚拟节点在哈希环上分布的均匀性就会比原来的真实节点好，从而使得数据分布也更加均匀。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://marchnineteen.github.io/2019/10/25/cache/index/" data-id="ckam2zs0c0005meq3e7jb7cyk" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-cache/redis" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/10/25/cache/redis/" class="article-date">
+  <time datetime="2019-10-25T00:00:00.000Z" itemprop="datePublished">2019-10-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/cache/">cache</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/10/25/cache/redis/">redis</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、概述（什么是redis）"><a href="#一、概述（什么是redis）" class="headerlink" title="一、概述（什么是redis）"></a>一、概述（什么是redis）</h1><p>redis是开源免费的key-value内存数据库。</p>
+<p>redis可以存储5种数据类型。键只支持string，值支持string，list，map，set，zset五种。</p>
+<p>redis支持数据持久化，使用复制来扩展读性能，使用分片来扩展写性能。</p>
+<h1 id="二、数据类型"><a href="#二、数据类型" class="headerlink" title="二、数据类型"></a>二、数据类型</h1><table>
+<thead>
+<tr>
+<th align="center">数据类型</th>
+<th align="center">可以存储的值</th>
+<th align="center">操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">STRING</td>
+<td align="center">字符串、整数或者浮点数</td>
+<td align="center">对整个字符串或者字符串的其中一部分执行操作</br> 对整数和浮点数执行自增或者自减操作</td>
+</tr>
+<tr>
+<td align="center">LIST</td>
+<td align="center">列表</td>
+<td align="center">从两端压入或者弹出元素 </br> 对单个或者多个元素进行修剪，</br> 只保留一个范围内的元素</td>
+</tr>
+<tr>
+<td align="center">SET</td>
+<td align="center">无序集合</td>
+<td align="center">添加、获取、移除单个元素</br> 检查一个元素是否存在于集合中</br> 计算交集、并集、差集</br> 从集合里面随机获取元素</td>
+</tr>
+<tr>
+<td align="center">HASH</td>
+<td align="center">包含键值对的无序散列表</td>
+<td align="center">添加、获取、移除单个键值对</br> 获取所有键值对</br> 检查某个键是否存在</td>
+</tr>
+<tr>
+<td align="center">ZSET</td>
+<td align="center">有序集合</td>
+<td align="center">添加、获取、删除元素</br> 根据分值范围或者成员来获取元素</br> 计算一个键的排名</td>
+</tr>
+</tbody></table>
+<h1 id="三、数据结构"><a href="#三、数据结构" class="headerlink" title="三、数据结构"></a>三、数据结构</h1><h1 id="四、redis应用场景"><a href="#四、redis应用场景" class="headerlink" title="四、redis应用场景"></a>四、redis应用场景</h1><h2 id="计数器"><a href="#计数器" class="headerlink" title="计数器"></a>计数器</h2><p>利用string类型可以存储整数和浮点数，进行自增自减操作。</p>
+<h2 id="缓存（用的最多的场景）"><a href="#缓存（用的最多的场景）" class="headerlink" title="缓存（用的最多的场景）"></a>缓存（用的最多的场景）</h2><p>将热点数据放到内存中，设置内存的最大使用量以及淘汰策略来保证缓存的命中率。</p>
+<p>将不经常改变的数据存入缓存，访问频繁访问数据库。</p>
+<h2 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h2><p>List 是一个双向链表，可以通过 lpush 和 rpop 写入和读取消息</p>
+<p>不过最好使用 Kafka、RabbitMQ 等消息中间件。</p>
+<p><a href="https://github.com/MarchNineteen/spring-example/blob/master/spring-example-cache/src/test/java/com/wyb/cache/RedisMqTests.java" target="_blank" rel="noopener">redis 实现 点对点  发布/订阅 消息队列 </a></p>
+<h2 id="会话缓存"><a href="#会话缓存" class="headerlink" title="会话缓存"></a>会话缓存</h2><p>可以使用 Redis 来统一存储多台应用服务器的会话信息。</p>
+<p>当应用服务器不再存储用户的会话信息，也就不再具有状态，一个用户可以请求任意一个应用服务器，从而更容易实现高可用性以及可伸缩性。</p>
+<h2 id="分布式锁实现"><a href="#分布式锁实现" class="headerlink" title="分布式锁实现"></a>分布式锁实现</h2><p>在分布式场景下，无法使用单机环境下的锁来对多个节点上的进程进行同步。</p>
+<p>可以使用 Redis 自带的 SETNX 命令实现分布式锁，除此之外，还可以使用官方提供的 RedLock 分布式锁实现。</p>
+<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><p>Set 可以实现交集、并集等操作，从而实现共同好友等功能。</p>
+<p>ZSet 可以实现有序性操作，从而实现排行榜等功能。</p>
+<h1 id="五、数据淘汰策略"><a href="#五、数据淘汰策略" class="headerlink" title="五、数据淘汰策略"></a>五、数据淘汰策略</h1><p>可以设置内存最大使用量，当内存使用量超出时，会施行数据淘汰策略。</p>
+<p>Redis 具体有 6 种淘汰策略：</p>
+<table>
+<thead>
+<tr>
+<th align="center">策略</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">volatile-lru</td>
+<td align="center">从已设置过期时间的数据集中挑选最近最少使用的数据淘汰</td>
+</tr>
+<tr>
+<td align="center">volatile-ttl</td>
+<td align="center">从已设置过期时间的数据集中挑选将要过期的数据淘汰</td>
+</tr>
+<tr>
+<td align="center">volatile-random</td>
+<td align="center">从已设置过期时间的数据集中任意选择数据淘汰</td>
+</tr>
+<tr>
+<td align="center">allkeys-lru</td>
+<td align="center">从所有数据集中挑选最近最少使用的数据淘汰</td>
+</tr>
+<tr>
+<td align="center">allkeys-random</td>
+<td align="center">从所有数据集中任意选择数据进行淘汰</td>
+</tr>
+<tr>
+<td align="center">noeviction</td>
+<td align="center">禁止驱逐数据</td>
+</tr>
+</tbody></table>
+<p>作为内存数据库，出于对性能和内存消耗的考虑，Redis 的淘汰算法实际实现上并非针对所有 key，而是抽样一小部分并且从中选出被淘汰的 key。</p>
+<p>使用 Redis 缓存数据时，为了提高缓存命中率，需要保证缓存数据都是热点数据。可以将内存最大使用量设置为热点数据占用的内存量，然后启用 allkeys-lru 淘汰策略，将最近最少使用的数据淘汰。</p>
+<p>Redis 4.0 引入了 volatile-lfu 和 allkeys-lfu 淘汰策略，LFU 策略通过统计访问频率，将访问频率最少的键值对淘汰。</p>
+<h1 id="六、持久化"><a href="#六、持久化" class="headerlink" title="六、持久化"></a>六、持久化</h1><h2 id="RDB-持久化"><a href="#RDB-持久化" class="headerlink" title="RDB 持久化"></a>RDB 持久化</h2><p>将某个时间点的所有数据都存放到硬盘上。</p>
+<p>可以将快照复制到其它服务器从而创建具有相同数据的服务器副本。</p>
+<p>如果系统发生故障，将会丢失最后一次创建快照之后的数据。</p>
+<p>如果数据量很大，保存快照的时间会很长。</p>
+<h2 id="AOF-持久化"><a href="#AOF-持久化" class="headerlink" title="AOF 持久化"></a>AOF 持久化</h2><p>将写命令添加到 AOF 文件（Append Only File）的末尾。</p>
+<p>使用 AOF 持久化需要设置同步选项，从而确保写命令同步到磁盘文件上的时机。这是因为对文件进行写入并不会马上将内容同步到磁盘上，而是先存储到缓冲区，然后由操作系统决定什么时候同步到磁盘。有以下同步选项：</p>
+<table>
+<thead>
+<tr>
+<th align="center">选项</th>
+<th align="center">同步频率</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">always</td>
+<td align="center">每个写命令都同步</td>
+</tr>
+<tr>
+<td align="center">everysec</td>
+<td align="center">每秒同步一次</td>
+</tr>
+<tr>
+<td align="center">no</td>
+<td align="center">让操作系统来决定何时同步</td>
+</tr>
+</tbody></table>
+<ul>
+<li>always 选项会严重减低服务器的性能；</li>
+<li>everysec 选项比较合适，可以保证系统崩溃时只会丢失一秒左右的数据，并且 Redis 每秒执行一次同步对服务器性能几乎没有任何影响；</li>
+<li>no 选项并不能给服务器性能带来多大的提升，而且也会增加系统崩溃时数据丢失的数量。</li>
+</ul>
+<p>随着服务器写请求的增多，AOF 文件会越来越大。Redis 提供了一种将 AOF 重写的特性，能够去除 AOF 文件中的冗余写命令。</p>
+<h1 id="七、事务"><a href="#七、事务" class="headerlink" title="七、事务"></a>七、事务</h1><p>一个事务包含了多个命令，服务器在执行事务期间，不会改去执行其它客户端的命令请求。</p>
+<p>事务中的多个命令被一次性发送给服务器，而不是一条一条发送，这种方式被称为流水线，它可以减少客户端与服务器之间的网络通信次数从而提升性能。</p>
+<p>Redis 最简单的事务实现方式是使用 MULTI 和 EXEC 命令将事务操作包围起来。</p>
+<p>通过使用 slaveof host port 命令来让一个服务器成为另一个服务器的从服务器。</p>
+<p>一个从服务器只能有一个主服务器，并且不支持主主复制。</p>
+<h1 id="八、复制"><a href="#八、复制" class="headerlink" title="八、复制"></a>八、复制</h1><h2 id="连接过程"><a href="#连接过程" class="headerlink" title="连接过程"></a>连接过程</h2><ol>
+<li><p>主服务器创建快照文件，发送给从服务器，并在发送期间使用缓冲区记录执行的写命令。快照文件发送完毕之后，开始向从服务器发送存储在缓冲区中的写命令；</p>
+</li>
+<li><p>从服务器丢弃所有旧数据，载入主服务器发来的快照文件，之后从服务器开始接受主服务器发来的写命令；</p>
+</li>
+<li><p>主服务器每执行一次写命令，就向从服务器发送相同的写命令。</p>
+</li>
+</ol>
+<h2 id="主从链"><a href="#主从链" class="headerlink" title="主从链"></a>主从链</h2><p>随着负载不断上升，主服务器可能无法很快地更新所有从服务器，或者重新连接和重新同步从服务器将导致系统超载。为了解决这个问题，可以创建一个中间层来分担主服务器的复制工作。中间层的服务器是最上层服务器的从服务器，又是最下层服务器的主服务器。</p>
+<h1 id="九、Sentinel"><a href="#九、Sentinel" class="headerlink" title="九、Sentinel"></a>九、Sentinel</h1><p>Sentinel（哨兵）可以监听集群中的服务器，并在主服务器进入下线状态时，自动从从服务器中选举出新的主服务器。</p>
+<h1 id="十、分片"><a href="#十、分片" class="headerlink" title="十、分片"></a>十、分片</h1><p>分片是将数据划分为多个部分的方法，可以将数据存储到多台机器里面，这种方法在解决某些问题时可以获得线性级别的性能提升。</p>
+<p>假设有 4 个 Redis 实例 R0，R1，R2，R3，还有很多表示用户的键 user:1，user:2，… ，有不同的方式来选择一个指定的键存储在哪个实例中。</p>
+<ul>
+<li>最简单的方式是范围分片，例如用户 id 从 0~1000 的存储到实例 R0 中，用户 id 从 1001~2000 的存储到实例 R1 中，等等。但是这样需要维护一张映射范围表，维护操作代价很高。</li>
+<li>还有一种方式是哈希分片，使用 CRC32 哈希函数将键转换为一个数字，再对实例数量求模就能知道应该存储的实例。</li>
+</ul>
+<p>根据执行分片的位置，可以分为三种分片方式：</p>
+<ul>
+<li>客户端分片：客户端使用一致性哈希等算法决定键应当分布到哪个节点。</li>
+<li>代理分片：将客户端请求发送到代理上，由代理转发请求到正确的节点上。</li>
+<li>服务器分片：Redis Cluster。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://marchnineteen.github.io/2019/10/25/cache/redis/" data-id="ckam2zs0h0008meq3ha9lfqwb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-日常问题记录/webXml和spring初始化顺序问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/10/17/%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/webXml%E5%92%8Cspring%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F%E9%97%AE%E9%A2%98/" class="article-date">
+  <time datetime="2019-10-17T00:00:00.000Z" itemprop="datePublished">2019-10-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">日常问题记录</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/10/17/%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/webXml%E5%92%8Cspring%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F%E9%97%AE%E9%A2%98/">webXml和spring初始化顺序问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="问题产生"><a href="#问题产生" class="headerlink" title="问题产生"></a>问题产生</h1><p>同事想要在项目初始化完成后，开启线程池执行业务逻辑的代码，其中需要注入spring的bean，他想到使用servlet的listener，但是无法在listener中无法直接通过@Resource注解获取实例。</p>
+<h1 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a>原因分析</h1><p>在tomcat容器中，listener，filter，servlet等都不是交给spring容器管理，两者环境不一致当然就获取不到了。</p>
+<h1 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h1><p>如果需要在tomcat等web容器环境中获取spring实例需要获取ServletContext，通过webContext去获取springIOC容器从而获取spring实例。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;ServletContext,是一个全局的储存信息的空间，服务器开始，其就存在，服务器关闭，其才释放。request，一个用户可有多个；session，一个用户一个；而servletContext，所有用户共用一个。</span><br><span class="line">&#x2F;&#x2F;所以，为了节省空间，提高效率，ServletContext中，要放必须的、重要的、所有用户需要共享的线程又是安全的一些信息。</span><br><span class="line">    @Override</span><br><span class="line">    public void contextInitialized(ServletContextEvent servletContextEvent) &#123;</span><br><span class="line">        WebApplicationContext springContext &#x3D; WebApplicationContextUtils.getWebApplicationContext(servletContextEvent.getServletContext());</span><br><span class="line">        Init init &#x3D; (Init) springContext.getBean(&quot;Init&quot;);</span><br><span class="line"></span><br><span class="line">        System.out.println(init);</span><br><span class="line">        System.out.println(&quot;listener init&quot;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="问题延伸"><a href="#问题延伸" class="headerlink" title="问题延伸"></a>问题延伸</h1><h2 id="web-xml文件中各个节点参数的启动顺序"><a href="#web-xml文件中各个节点参数的启动顺序" class="headerlink" title="web.xml文件中各个节点参数的启动顺序"></a>web.xml文件中各个节点参数的启动顺序</h2><p>可以明确的是初始化顺序context-param -&gt; listener-&gt; filter -&gt; servlet。</p>
+<p>在代码中分别自定义listener，filter，spring bean（Init）。启动项目可以看出先打印 listener init,再打印filter init。</p>
+<p>那么spring容器的bean呢，在什么时候会进行初始化。新建Init类实现InitializingBean，然后在xml中配置该bean，这样spring容器初始化是会去执行afterPropertiesSet方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">    public void afterPropertiesSet() throws Exception &#123;</span><br><span class="line">        System.out.println(&quot;InitializingBean&quot;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>创建完java文件后，咱们先来看看 web.xml。</p>
+<p>一般springIOC容器在context-param进行初始化，<strong>此时spring就已经在初始化xml文件中的实例了</strong>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--在web.xml中通过contextConfigLocation配置spring，contextConfigLocation--&gt;</span><br><span class="line">    &lt;context-param&gt;</span><br><span class="line">        &lt;param-name&gt;contextConfigLocation&lt;&#x2F;param-name&gt;</span><br><span class="line">        &lt;param-value&gt;</span><br><span class="line">            classpath:spring-context.xml</span><br><span class="line">        &lt;&#x2F;param-value&gt;</span><br><span class="line">    &lt;&#x2F;context-param&gt;</span><br></pre></td></tr></table></figure>
+
+<p>spring的xml其实也可以放在其它地方进行加载，比如说listener，servlet中，例如springMVC的xml文件，会配置在servlet中，进行路由转发。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 请求转发器 --&gt;</span><br><span class="line">  &lt;servlet&gt;</span><br><span class="line">    &lt;servlet-name&gt;dispatcher&lt;&#x2F;servlet-name&gt;</span><br><span class="line">    &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;&#x2F;servlet-class&gt;</span><br><span class="line">    &lt;init-param&gt;</span><br><span class="line">      &lt;param-name&gt;contextConfigLocation&lt;&#x2F;param-name&gt;</span><br><span class="line">      &lt;param-value&gt;classpath:spring-mvc.xml&lt;&#x2F;param-value&gt;</span><br><span class="line">    &lt;&#x2F;init-param&gt;</span><br><span class="line">    &lt;load-on-startup&gt;1&lt;&#x2F;load-on-startup&gt;</span><br><span class="line">  &lt;&#x2F;servlet&gt;</span><br><span class="line">  &lt;servlet-mapping&gt;</span><br><span class="line">  &lt;servlet-name&gt;dispatcher&lt;&#x2F;servlet-name&gt;</span><br><span class="line">  &lt;url-pattern&gt;&#x2F;&lt;&#x2F;url-pattern&gt;</span><br><span class="line">  &lt;&#x2F;servlet-mapping&gt;</span><br></pre></td></tr></table></figure>
+
+<p>如若此时在contextConfigLocation下增加classpath:spring-context.xml，spring同样也会去初始化配置文件。所以可以得出结论，springIOC环境的<br>初始化与web context的初始化顺序无直接关联。</p>
+<p>那么问题来了，在listener，filter中获取WebApplicationContext可以获得spring bean吗？</p>
+<p>我们先把spring-context.xml放在context-param中，让它在lister之前进行spring初始化，看看效果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">   修改xml文件</span><br><span class="line">   &lt;context-param&gt;</span><br><span class="line">       &lt;param-name&gt;contextConfigLocation&lt;&#x2F;param-name&gt;</span><br><span class="line">       &lt;param-value&gt;</span><br><span class="line">           classpath:spring-context.xml</span><br><span class="line">       &lt;&#x2F;param-value&gt;</span><br><span class="line">   &lt;&#x2F;context-param&gt;</span><br><span class="line">   </span><br><span class="line">修改自定义CustomListener   </span><br><span class="line">@Override</span><br><span class="line">   public void contextInitialized(ServletContextEvent servletContextEvent) &#123;</span><br><span class="line">       WebApplicationContext springContext &#x3D; WebApplicationContextUtils.getWebApplicationContext(servletContextEvent.getServletContext());</span><br><span class="line">       Init init &#x3D; (Init) springContext.getBean(&quot;init&quot;);</span><br><span class="line"></span><br><span class="line">       System.out.println(init);</span><br><span class="line">       System.out.println(&quot;listener init&quot;);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>此时InitializingBean最先打印出来，说明其在listener，filter之前执行了。<br>控制台输出 com.wyb.web.config.Init@e082c17，说明在listen之前，spring的Context已经初始化，可以获取到bean，那么我们把spring-context.xml<br>放在servlet中去初始化，即在listener之后初始化会怎么样呢？</p>
+<p>修改web.xml代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;servlet&gt;</span><br><span class="line">    &lt;servlet-name&gt;dispatcher&lt;&#x2F;servlet-name&gt;</span><br><span class="line">    &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;&#x2F;servlet-class&gt;</span><br><span class="line">    &lt;init-param&gt;</span><br><span class="line">      &lt;param-name&gt;contextConfigLocation&lt;&#x2F;param-name&gt;</span><br><span class="line">      &lt;param-value&gt;classpath:spring-mvc.xml,classpath:spring-context.xml&lt;&#x2F;param-value&gt;</span><br><span class="line">    &lt;&#x2F;init-param&gt;</span><br><span class="line">    &lt;load-on-startup&gt;1&lt;&#x2F;load-on-startup&gt;</span><br><span class="line">  &lt;&#x2F;servlet&gt;</span><br><span class="line">  &lt;servlet-mapping&gt;</span><br><span class="line">  &lt;servlet-name&gt;dispatcher&lt;&#x2F;servlet-name&gt;</span><br><span class="line">  &lt;url-pattern&gt;&#x2F;&lt;&#x2F;url-pattern&gt;</span><br><span class="line">  &lt;&#x2F;servlet-mapping&gt;</span><br></pre></td></tr></table></figure>
+
+<p>此时InitializingBean最后打印，说明其在listener，filter之后执行了。<br>CustomListener抛出NoSuchBeanDefinitionException异常，即无法获得该实例，由此得出结论，spring bean的初始化顺序由配置文件在web.xml中什么时候加载有关，与listener，filter无直接关系。<br><strong>若listener想获得spring bean，该bean需要在listener之前<br>进行初始化</strong>。</p>
+<p>两个spring bean之间进行相互注入依赖，则要看xml文件在web.xml进行加载的顺序。绝对了spring bean初始化的顺序。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://marchnineteen.github.io/2019/10/17/%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/webXml%E5%92%8Cspring%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F%E9%97%AE%E9%A2%98/" data-id="ckam2zs1k001ameq3ea6r2det" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-tool/git常用指令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/08/27/tool/git%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" class="article-date">
+  <time datetime="2019-08-27T00:00:00.000Z" itemprop="datePublished">2019-08-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/tool/">tool</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/08/27/tool/git%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">git常用指令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="工作区与暂存区"><a href="#工作区与暂存区" class="headerlink" title="工作区与暂存区"></a>工作区与暂存区</h1><ul>
+<li>版本回退：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git log (git log --pretty&#x3D;oneline) 查看提交日志</span><br><span class="line">git log --graph --pretty&#x3D;oneline --abbrev-commit 简化查看日志</span><br><span class="line">git reset --hard commitid(HEAD^ HEAD表示当前版本 ^表示上个版本 以此类推,也可以使用~num,num表示几个^) (windows命令行下需要git reset --hard &quot;HEAD^&quot; ) </span><br><span class="line">git reflog 查看命令历史</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>管理修改：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git add xx 把文件添加到版本库</span><br><span class="line">git status 查看当前版本库状态</span><br><span class="line">git commit -m &quot;msg&quot; 提交修改 -m表示提交注释 ps:若使用命令行提交，每次commit都需add</span><br><span class="line">git diff </span><br><span class="line">git diff HEAD -- xx.file 查看工作区和版本库里面最新版本的区别 (HEAD^ 与版本回退同理)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>撤销修改：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git checkout -- xx 把文件在工作区的修改全部撤销。第一种情况修改后未被放入暂存区，撤销修改与版本库一致，第二种已经添加到了暂存区，又作了修改，撤销修改回到add时的状态。让这个文件回到最近一次git commit或git add时的状态</span><br><span class="line"></span><br><span class="line">git reset HEAD &lt;file&gt; 把暂存区的修改回退到工作区,适用于add未commit</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>删除文件：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm 用于删除一个文件</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>取消文件跟踪：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git rm --cached xx.txt 删除readme1.txt的跟踪，并保留在本地。之后git commit </span><br><span class="line"></span><br><span class="line">git rm --f xx.txt 删除readme1.txt的跟踪，并且删除本地文件。之后git commit</span><br></pre></td></tr></table></figure>
+
+<h1 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h1><ul>
+<li>添加远程库：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin xx.git 添加远程仓库地址</span><br><span class="line">git push -u origin master 由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令</span><br><span class="line">git push origin master推送最新修改</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>从远程库克隆：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone xx.git</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>多人协作：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git remote -v 查看远程库信息</span><br><span class="line">git fetch origin &lt;branch-name&gt; 从远程拉去分支代码</span><br><span class="line">git merge 合并代码</span><br><span class="line">git pull &#x3D; git fetch + git merge</span><br><span class="line">git push origin &lt;branch-name&gt; 推送修改</span><br><span class="line">git checkout -b &lt;branch-name&gt; origin&#x2F;&lt;branch-name&gt; 本地创建和远程分支对应的分支,名称最好一致</span><br><span class="line">git branch --set-upstream &lt;branch-name&gt; origin&#x2F;&lt;branch-name&gt; 建立本地分支和远程分支的关联</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>git放弃本地修改，强制更新：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git fetch --all 下载远程仓库最新内容，不做合并</span><br><span class="line">git reset --hard origin&#x2F;master 把HEAD指向master最新版本</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
+
+<h1 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h1><ul>
+<li>创建与合并分支：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git branch dev 创建dev分支</span><br><span class="line">git checkout dev 切换至dev分支</span><br><span class="line">git checkout -b dev 创建并切换至dev分支</span><br><span class="line">git branch 查看当前分支</span><br><span class="line">git merge dev 合并dev分支代码至当前分支</span><br><span class="line">git branch -d dev 删除dev分支</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>解决冲突：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --graph 命令可以看到分支合并图</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Bug分支：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git stash 暂存当前工作区代码</span><br><span class="line">git stash list 查看暂存代码记录</span><br><span class="line">git stash apply 恢复代码至工作区，但不删除暂存内容</span><br><span class="line">git stash drop 删除暂存内容</span><br><span class="line">git stash pop &#x3D; git stash apply + git stash drop 恢复代码至工作区并删除暂存内容</span><br><span class="line">git cherry-pick &lt;commitid&gt; 复制某一次提交代码至当前分支</span><br></pre></td></tr></table></figure>
+
+<h1 id="标签管理"><a href="#标签管理" class="headerlink" title="标签管理"></a>标签管理</h1><ul>
+<li>创建标签：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git tag &lt;tagname&gt; 用于新建一个标签，默认为HEAD，也可以指定一个commit id</span><br><span class="line">git tag -a &lt;tagname&gt; -m &quot;msg&quot; 可以指定标签信息</span><br><span class="line">git tag 查看所有标签</span><br><span class="line">git show &lt;tagname&gt; 查看说明</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>操作标签：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git tag -d &lt;tagname&gt; 删除一个本地标签</span><br><span class="line">git push origin :refs&#x2F;tags&#x2F;&lt;tagname&gt; 删除一个远程标签</span><br><span class="line">git push origin &lt;tagname&gt; 推送标签至远程</span><br><span class="line">git push origin --tags 一次性推送全部尚未推送到远程的本地标签</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://marchnineteen.github.io/2019/08/27/tool/git%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" data-id="ckam2zs1g0014meq3e073glro" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/5/">5</a><a class="extend next" rel="next" href="/blog/page/2/">Next &amp;raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/JVM/">JVM</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/JavaSE/">JavaSE</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/active/">active</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/cache/">cache</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/database/">database</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/datastructure/">datastructure</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/java-design-patterns/">java-design-patterns</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/linux-command/">linux-command</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/nginx/">nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/other/">other</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/servlet/">servlet</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/spring/">spring</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/tool/">tool</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">日常问题记录</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/02/">February 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2020/04/10/other/hangzhoumetro2025/">杭州地铁规划2025</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/01/11/java/javase/streamApiAction/">java 1.8  steam流操作</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2019/12/20/active/miaosha/">秒杀场景</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2019/12/06/spring/beanLifeCycle/">Spring Bean 生命周期</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2019/12/06/spring/springLoadXml/">Spring 加载XML文件的六种方式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Marcher<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+
+  
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

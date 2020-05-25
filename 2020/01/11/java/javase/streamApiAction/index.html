@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>java 1.8  steam流操作 | Marcher</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="相应源码地址 流操作类型中间操作目的是打开一个流，做出一些操作或者映射后，会返回一个新的流交给下个操作。lazy的，在调用方式时并没有真正执行。 终止操作在执行这个操作后，流被使用，在出现终止操作时才会调用之前的所有方法。 short-circuiting对于一个 intermediate 操作，如果它接受的是一个无限大（infinite&#x2F;unbounded）的 Stream，但返回一个有限的新">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java 1.8  steam流操作">
+<meta property="og:url" content="https://marchnineteen.github.io/2020/01/11/java/javase/streamApiAction/index.html">
+<meta property="og:site_name" content="Marcher">
+<meta property="og:description" content="相应源码地址 流操作类型中间操作目的是打开一个流，做出一些操作或者映射后，会返回一个新的流交给下个操作。lazy的，在调用方式时并没有真正执行。 终止操作在执行这个操作后，流被使用，在出现终止操作时才会调用之前的所有方法。 short-circuiting对于一个 intermediate 操作，如果它接受的是一个无限大（infinite&#x2F;unbounded）的 Stream，但返回一个有限的新">
+<meta property="article:published_time" content="2020-01-11T00:00:00.000Z">
+<meta property="article:modified_time" content="2020-05-25T05:59:30.517Z">
+<meta property="article:author" content="Marcher">
+<meta property="article:tag" content="java steam Collectors">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Marcher" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Marcher</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://marchnineteen.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-java/javase/streamApiAction" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2020/01/11/java/javase/streamApiAction/" class="article-date">
+  <time datetime="2020-01-11T00:00:00.000Z" itemprop="datePublished">2020-01-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/JavaSE/">JavaSE</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      java 1.8  steam流操作
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://github.com/MarchNineteen/spring-example/blob/master/spring-example-test/src/main/java/com/wyb/test/java/java8/StreamApiAction.java" target="_blank" rel="noopener">相应源码地址</a></p>
+<h2 id="流操作类型"><a href="#流操作类型" class="headerlink" title="流操作类型"></a>流操作类型</h2><h3 id="中间操作"><a href="#中间操作" class="headerlink" title="中间操作"></a>中间操作</h3><p>目的是打开一个流，做出一些操作或者映射后，会返回一个新的流交给下个操作。lazy的，在调用方式时并没有真正执行。</p>
+<h3 id="终止操作"><a href="#终止操作" class="headerlink" title="终止操作"></a>终止操作</h3><p>在执行这个操作后，流被使用，在出现终止操作时才会调用之前的所有方法。</p>
+<h3 id="short-circuiting"><a href="#short-circuiting" class="headerlink" title="short-circuiting"></a>short-circuiting</h3><p>对于一个 intermediate 操作，如果它接受的是一个无限大（infinite/unbounded）的 Stream，但返回一个有限的新 Stream。<br>对于一个 terminal 操作，如果它接受的是一个无限大的 Stream，但能在有限的时间计算出结果。</p>
+<h2 id="具体流操作"><a href="#具体流操作" class="headerlink" title="具体流操作"></a>具体流操作</h2><h3 id="中间操作-1"><a href="#中间操作-1" class="headerlink" title="中间操作"></a>中间操作</h3><ul>
+<li>map (mapToInt, flatMap 等)</li>
+</ul>
+<p>把input Stream 的每一个元素，映射成 output Stream 的另外一个元素。</p>
+<p>map一对一</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;list中数的平方</span><br><span class="line">list.stream().map(v -&gt; v * v)</span><br></pre></td></tr></table></figure>
+
+<p>flatMap一对多 多对多 映射,把流扁平化，多个流转化成流里所有元素的单个流。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Integer&gt; list1 &#x3D; Arrays.asList(1, 2, 3, 4, 5);</span><br><span class="line">List&lt;Integer&gt; list2 &#x3D; Arrays.asList(6, 7, 8, 9, 10);</span><br><span class="line">List&lt;List&lt;Integer&gt;&gt; allList &#x3D; new ArrayList&lt;&gt;();</span><br><span class="line">allList.add(list1);</span><br><span class="line">allList.add(list2);</span><br><span class="line">        </span><br><span class="line">allList.stream().flatMap(v -&gt; v.stream()).forEach(System.out::println);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>filter </li>
+</ul>
+<p>过滤,对元素进行某种条件过滤，留下符合的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 留下偶数</span><br><span class="line">list.stream().filter(v -&gt; v % 2 &#x3D;&#x3D; 0).forEach(System.out::println);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>distinct </li>
+</ul>
+<p>去重，不接收方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">list.stream().distinct().forEach(System.out::println);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>sorted</li>
+</ul>
+<p>排序，接受一个Comparator，或者默认顺序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">list.stream().sorted()</span><br><span class="line">list.stream().sorted((o1, o2) -&gt; -1)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>peek</li>
+</ul>
+<p>peek 对每个元素执行操作并返回一个新的 Stream。类似foreach，foreach是终止操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">list &#x3D; list.stream().peek(System.out::println).collect(Collectors.toList());</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>limit</li>
+</ul>
+<p>返回 Stream 的前面 n 个元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">list.stream().limit(2).forEach(System.out::println);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>skip</li>
+</ul>
+<p>扔掉前 n 个元素（它是由一个叫 subStream 的方法改名而来）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">list.stream().skip(2).forEach(System.out::println);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>parallel</li>
+</ul>
+<p>转行成并行流，进行多线程操作，顺序会改变。可以使用forEachOrdered，固定顺序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">list.stream().parallel().forEach(System.out::println);</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">1</span><br><span class="line">5</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>sequential</li>
+</ul>
+<p>并行流转为串行流</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">list.parallelStream().forEach(System.out::println);</span><br><span class="line">list.parallelStream().sequential().forEach(System.out::println);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>unordered</li>
+</ul>
+<p><strong>消除了必须保持有序的流的约束</strong>,返回一个无序的等效的Stream，可能返回的是Stream本身，因为该Stream已经是无序的，或者该Stream的底层状态被修改为了无序.<br>一般用于并行的时候。例如TreeSet，或者流操作中指定顺序，会取消排序和指定顺序无效。</p>
+<h3 id="终止操作-1"><a href="#终止操作-1" class="headerlink" title="终止操作"></a>终止操作</h3><ul>
+<li>forEach</li>
+</ul>
+<p>forEach 不能修改自己包含的本地变量值，也不能用 break/return 之类的关键字提前结束循环。</p>
+<ul>
+<li><p>forEachOrdered</p>
+</li>
+<li><p>toArray</p>
+</li>
+<li><p>reduce</p>
+</li>
+</ul>
+<p>这个方法的主要作用是把 Stream 元素组合起来。它提供一个起始值（种子），然后依照运算规则（BinaryOperator），和前面 Stream 的第一个、第二个、第 n 个元素组合。<br>从这个意义上说，字符串拼接、数值的 sum、min、max、average 都是特殊的 reduce。</p>
+<p>注意：没有起始值，返回对象为Optional</p>
+<ul>
+<li>collect</li>
+</ul>
+<p>两个方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;R&gt; R collect(Supplier&lt;R&gt; supplier,</span><br><span class="line">                  BiConsumer&lt;R, ? super T&gt; accumulator,</span><br><span class="line">                  BiConsumer&lt;R, R&gt; combiner);</span><br><span class="line">                  </span><br><span class="line">IntStream i &#x3D; IntStream.of(6,5,7,1, 2, 3, 3);</span><br><span class="line">  List&lt;Integer&gt; v &#x3D; i</span><br><span class="line">      .collect(ArrayList::new, ArrayList::add, ArrayList::addAll);</span><br><span class="line">  </span><br><span class="line">  System.out.println(v);</span><br><span class="line"></span><br><span class="line">&lt;R, A&gt; R collect(Collector&lt;? super T, A, R&gt; collector);</span><br></pre></td></tr></table></figure>
+
+<p>Collector在后面重点讲解</p>
+<ul>
+<li><p>min</p>
+</li>
+<li><p>max</p>
+</li>
+<li><p>count</p>
+</li>
+<li><p>anyMatch</p>
+</li>
+<li><p>allMatch</p>
+</li>
+<li><p>noneMatch</p>
+</li>
+<li><p>findFirst</p>
+</li>
+<li><p>findAny</p>
+</li>
+<li><p>iterator</p>
+</li>
+</ul>
+<h3 id="Short-circuiting"><a href="#Short-circuiting" class="headerlink" title="Short-circuiting"></a>Short-circuiting</h3><ul>
+<li><p>anyMatch</p>
+</li>
+<li><p>allMatch </p>
+</li>
+<li><p>noneMatch</p>
+</li>
+<li><p>findFirst </p>
+</li>
+<li><p>findAny </p>
+</li>
+<li><p>limit</p>
+</li>
+</ul>
+<h2 id="Collectors"><a href="#Collectors" class="headerlink" title="Collectors"></a>Collectors</h2><p>要作用就是辅助进行各类有用的 reduction 操作，例如转变输出为 Collection，把 Stream 元素进行归组。</p>
+<ul>
+<li>类型归纳 </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Collectors.toList();</span><br><span class="line">Collectors.toMap();</span><br><span class="line">Collectors.toSet();</span><br><span class="line">Collectors.toCollection();</span><br><span class="line">Collectors.toConcurrentMap();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>joining</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; strList = Arrays.asList(<span class="string">"aa"</span>, <span class="string">"bb"</span>, <span class="string">"cc"</span>, <span class="string">"dd"</span>, <span class="string">"ee"</span>);</span><br><span class="line">String s = strList.stream().collect(Collectors.joining());</span><br><span class="line">System.out.println(s);</span><br><span class="line"><span class="comment">// 逗号连接</span></span><br><span class="line">s = strList.stream().collect(Collectors.joining(<span class="string">","</span>));</span><br><span class="line">System.out.println(s);</span><br><span class="line"><span class="comment">// 逗号连接</span></span><br><span class="line">s = strList.stream().collect(Collectors.joining(<span class="string">","</span>, <span class="string">"["</span>, <span class="string">"]"</span>));</span><br><span class="line">System.out.println(s);</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">- collectingAndThen</span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line">s = strList.stream().collect(Collectors.collectingAndThen(Collectors.joining(<span class="string">","</span>), String::toUpperCase));</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>groupingBy groupingByConcurrent</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;Integer, List&lt;String&gt;&gt; map = strList.stream().collect(Collectors.groupingBy(String::length));</span><br><span class="line">map.keySet().forEach(v -&gt; map.get(v).forEach(System.out::println));</span><br><span class="line">    </span><br><span class="line">Map&lt;Integer, Set&lt;String&gt;&gt; map1 = strList.stream().collect(Collectors.groupingBy(String::length, Collectors.toSet();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>partitioningBy</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;Boolean, List&lt;Integer&gt;&gt; mapBoolean = list.stream().collect(Collectors.partitioningBy(v -&gt; v % <span class="number">2</span> == <span class="number">0</span>));</span><br><span class="line">mapBoolean.keySet().forEach(v -&gt; mapBoolean.get(v).forEach(System.out::println));</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>summingInt/Double/Long summarizingInt/Double/Long</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://marchnineteen.github.io/2020/01/11/java/javase/streamApiAction/" data-id="ckam2zs2b002bmeq3bvydd0mn" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2020/04/10/other/hangzhoumetro2025/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          杭州地铁规划2025
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2019/12/20/active/miaosha/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">秒杀场景</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/JVM/">JVM</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/JavaSE/">JavaSE</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/active/">active</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/cache/">cache</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/database/">database</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/datastructure/">datastructure</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/java-design-patterns/">java-design-patterns</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/linux-command/">linux-command</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/nginx/">nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/other/">other</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/servlet/">servlet</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/spring/">spring</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/tool/">tool</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">日常问题记录</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/02/">February 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2020/04/10/other/hangzhoumetro2025/">杭州地铁规划2025</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/01/11/java/javase/streamApiAction/">java 1.8  steam流操作</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2019/12/20/active/miaosha/">秒杀场景</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2019/12/06/spring/beanLifeCycle/">Spring Bean 生命周期</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2019/12/06/spring/springLoadXml/">Spring 加载XML文件的六种方式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Marcher<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+
+  
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

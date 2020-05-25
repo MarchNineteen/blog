@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Java设计模式：享元模式 | Marcher</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="定义(目的)利用共享的方式来支持大量细粒度的对象，这些对象一部分内部状态是相同的。 实现原理在享元接口中 定义一个方法，即为对象的外部状态，每个对象的外部状态都不同在接口的实现类中添加一个成员变量作为识别标志，在创建工厂类中添加一个Map以识别标志为key，即以对象内部相同状态为key，调用方法即可改变其它状态 代码实现：   定义组享元接口 拥有改变外部对象的方法 public interfac">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java设计模式：享元模式">
+<meta property="og:url" content="https://marchnineteen.github.io/2019/01/24/java/java-design/structure/flyweight/index.html">
+<meta property="og:site_name" content="Marcher">
+<meta property="og:description" content="定义(目的)利用共享的方式来支持大量细粒度的对象，这些对象一部分内部状态是相同的。 实现原理在享元接口中 定义一个方法，即为对象的外部状态，每个对象的外部状态都不同在接口的实现类中添加一个成员变量作为识别标志，在创建工厂类中添加一个Map以识别标志为key，即以对象内部相同状态为key，调用方法即可改变其它状态 代码实现：   定义组享元接口 拥有改变外部对象的方法 public interfac">
+<meta property="article:published_time" content="2019-01-24T00:00:00.000Z">
+<meta property="article:modified_time" content="2020-05-25T05:59:30.517Z">
+<meta property="article:author" content="Marcher">
+<meta property="article:tag" content="flyweight">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Marcher" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Marcher</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://marchnineteen.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-java/java-design/structure/flyweight" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/01/24/java/java-design/structure/flyweight/" class="article-date">
+  <time datetime="2019-01-24T00:00:00.000Z" itemprop="datePublished">2019-01-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/java-design-patterns/">java-design-patterns</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java设计模式：享元模式
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="定义-目的"><a href="#定义-目的" class="headerlink" title="定义(目的)"></a>定义(目的)</h1><p>利用共享的方式来支持大量细粒度的对象，这些对象一部分内部状态是相同的。</p>
+<h1 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h1><p>在享元接口中 定义一个方法，即为对象的外部状态，每个对象的外部状态都不同<br>在接口的实现类中添加一个成员变量作为识别标志，在创建工厂类中添加一个Map以识别标志为key，即以对象内部相同状态为key，<br>调用方法即可改变其它状态</p>
+<h2 id="代码实现："><a href="#代码实现：" class="headerlink" title="代码实现："></a>代码实现：</h2><p>   定义组享元接口 拥有改变外部对象的方法</p>
+<pre><code>public interface Flyweight {
+
+    /**
+     * 外部状态，每个享元对象的外部状态不同
+     *
+     * @param extrinsicState
+     */
+    public void extrinsicState(String extrinsicState);
+}</code></pre><p>   定义一个享元接口实现类，内部状态为成员变量，提供外部状态实现</p>
+<pre><code>public class ConcreteFlyweight implements Flyweight {
+
+    private String intrinsicState;
+
+    public ConcreteFlyweight(String intrinsicState) {
+        this.intrinsicState = intrinsicState;
+    }
+
+    @Override
+    public void extrinsicState(String extrinsicState) {
+        System.out.println(&quot;Object address: &quot; + System.identityHashCode(this));
+        System.out.println(&quot;IntrinsicState: &quot; + intrinsicState);
+        System.out.println(&quot;ExtrinsicState: &quot; + extrinsicState);
+    }
+}</code></pre><p>   定义享元对象工厂类，定义一个全局变量map存储享元对象。</p>
+<pre><code>public class FlyweightFactory {
+
+    private HashMap&lt;String, Flyweight&gt; flyweights = new HashMap&lt;&gt;();
+
+    public Flyweight getFlyweight(String intrinsicState) {
+        if (!flyweights.containsKey(intrinsicState)) {
+            Flyweight flyweight = new ConcreteFlyweight(intrinsicState);
+            flyweights.put(intrinsicState, flyweight);
+        }
+        return flyweights.get(intrinsicState);
+    }
+}  </code></pre><p>   测试</p>
+<pre><code>public class Client {
+
+    public static void main(String[] args) {
+        FlyweightFactory factory = new FlyweightFactory();
+        Flyweight flyweight1 = factory.getFlyweight(&quot;aa&quot;);
+        Flyweight flyweight2 = factory.getFlyweight(&quot;aa&quot;);
+        flyweight1.extrinsicState(&quot;x&quot;);
+        flyweight2.extrinsicState(&quot;y&quot;);
+    }
+}</code></pre><p>   结果</p>
+<pre><code>Object address: 985934102
+IntrinsicState: aa
+ExtrinsicState: x
+Object address: 985934102
+IntrinsicState: aa
+ExtrinsicState: y</code></pre><h3 id="JDK使用："><a href="#JDK使用：" class="headerlink" title="JDK使用："></a>JDK使用：</h3><p>Java 利用缓存来加速大量小对象的访问时间。</p>
+<ul>
+<li>java.lang.Integer#valueOf(int)</li>
+<li>java.lang.Boolean#valueOf(boolean)</li>
+<li>java.lang.Byte#valueOf(byte)</li>
+<li>java.lang.Character#valueOf(char)</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://marchnineteen.github.io/2019/01/24/java/java-design/structure/flyweight/" data-id="ckam2zs2y0032meq3epwc0g67" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2019/01/24/java/java-design/structure/facade/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Java设计模式：外观模式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2019/01/08/java/javase/hashMap/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JDK1.8 HashMap源码分析</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/JVM/">JVM</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/JavaSE/">JavaSE</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/active/">active</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/cache/">cache</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/database/">database</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/datastructure/">datastructure</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/java-design-patterns/">java-design-patterns</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/linux-command/">linux-command</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/nginx/">nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/other/">other</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/servlet/">servlet</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/spring/">spring</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/tool/">tool</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">日常问题记录</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/02/">February 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2020/04/10/other/hangzhoumetro2025/">杭州地铁规划2025</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/01/11/java/javase/streamApiAction/">java 1.8  steam流操作</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2019/12/20/active/miaosha/">秒杀场景</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2019/12/06/spring/beanLifeCycle/">Spring Bean 生命周期</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2019/12/06/spring/springLoadXml/">Spring 加载XML文件的六种方式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Marcher<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+
+  
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

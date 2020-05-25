@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Marcher</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Marcher">
+<meta property="og:url" content="https://marchnineteen.github.io/page/3/index.html">
+<meta property="og:site_name" content="Marcher">
+<meta property="article:author" content="Marcher">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Marcher" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Marcher</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://marchnineteen.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-java/java-design/structure/adapter" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/01/08/java/java-design/structure/adapter/" class="article-date">
+  <time datetime="2019-01-08T00:00:00.000Z" itemprop="datePublished">2019-01-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/java-design-patterns/">java-design-patterns</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/01/08/java/java-design/structure/adapter/">Java设计模式：适配器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="定义-目的"><a href="#定义-目的" class="headerlink" title="定义(目的)"></a>定义(目的)</h1><p>适配器就是一种适配中间件，它存在于不匹配的二者之间，用于连接二者，将不匹配变得匹配，简单点理解就是平常所见的转接头，转换器之类的存在。</p>
+<p>把一个类接口转换成另一个用户需要的接口。</p>
+<h1 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h1><ul>
+<li>通过组合的方式。</li>
+<li>通过继承来实现适配器功能。</li>
+</ul>
+<h2 id="代码实现："><a href="#代码实现：" class="headerlink" title="代码实现："></a>代码实现：</h2><p>   定义一个鸭接口 方法为鸭子叫</p>
+<pre><code>public interface Duck {
+
+    void quack();</code></pre><p>   定义一个火鸡接口 方法为鸡叫</p>
+<pre><code>public interface Turkey {
+
+   void gobble();    </code></pre><p>   鸭子实现类</p>
+<pre><code>public class WildDuck implements Duck {
+
+    @Override
+    public void quack() {
+        System.out.println(&quot;鸭子叫&quot;);
+    }
+}    </code></pre><p>   火鸡实现类</p>
+<pre><code>public class WildTurkey implements Turkey {
+
+    @Override
+    public void gobble() {
+        System.out.println(&quot;火鸡叫&quot;);
+    }
+} </code></pre><p>   现在鸭子只能发出鸭子叫，鸡只能发出鸡叫，我们想要鸭子发出鸡的叫声。添加鸭子适配器。</p>
+<pre><code>public class DuckAdapter implements Turkey {
+
+   Duck duck;
+
+   public DuckAdapter(Duck duck) {
+       this.duck = duck;
+   }
+
+   @Override
+   public void gobble() {
+       duck.quack();
+   }
+}</code></pre><p>   组合方式，适配器构造器需要一个鸭子对象，适配器实现了火鸡的接口，通过调用鸭子对象的方法，实现了鸭子发生了鸡叫。</p>
+<pre><code>public class DuckAdapter extends Turkey WildTurkey implements Turkey {
+
+      @Override
+      public void gobble() {
+          gobble.quack();
+      }
+   }</code></pre><p>   继承方式，适配器构造器需要一个鸭子对象，适配器实现了火鸡的接口，通过调用鸭子对象的方法，实现了鸭子发生了鸡叫。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://marchnineteen.github.io/2019/01/08/java/java-design/structure/adapter/" data-id="ckam2zs2o002tmeq37y57b7ii" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-java/java-design/structure/bridge" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/01/08/java/java-design/structure/bridge/" class="article-date">
+  <time datetime="2019-01-08T00:00:00.000Z" itemprop="datePublished">2019-01-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/java-design-patterns/">java-design-patterns</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/01/08/java/java-design/structure/bridge/">Java设计模式：桥接器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="定义-目的"><a href="#定义-目的" class="headerlink" title="定义(目的)"></a>定义(目的)</h1><p>将抽象与实现分离开来，使它们可以独立变化。</p>
+<p>抽象与实现解耦，例如一个生产线的机器，将参数设定与具体生产的过程实现分离开，使整个生产线更加灵活，用一套参数也可以使用不同的工作模式。</p>
+<p>其中参数设定与生产过程属于两种不同的维度，桥接模式所做的事情就是将不同的维度联结在一起！</p>
+<h1 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h1><ul>
+<li>在一个类中通过组合另一个对象，调用时只需在当前类调用对象方法即可，实现解耦。</li>
+</ul>
+<h2 id="代码实现："><a href="#代码实现：" class="headerlink" title="代码实现："></a>代码实现：</h2><p>   定义电视机抽象类,拥有3个方法。</p>
+<pre><code>public abstract class Tv {
+
+    public abstract void on();
+
+    public abstract void off();
+
+    public abstract void tuneTunnel();</code></pre><p>   定义一个电视机的实现类，Sony电视机。</p>
+<pre><code>public class SonyTv extends Tv {
+
+    @Override
+    public void on() {
+        System.out.println(&quot;SonyTv,on&quot;);
+    }
+
+    @Override
+    public void off() {
+        System.out.println(&quot;SonyTv,off&quot;);
+    }
+
+    @Override
+    public void tuneTunnel() {
+        System.out.println(&quot;SonyTv,tuneTunnel&quot;);
+    }</code></pre><p>   定义一个遥控器抽象类。组合了一个电视机对象。</p>
+<pre><code>protected Tv tv;
+
+    public RemoteControl(Tv tv) {
+        this.tv = tv;
+    }
+
+    public abstract void on();
+
+    public abstract void off();
+
+    public abstract void tuneTunnel();   </code></pre><p>   定义一个遥控器的实现类，Sony电视机遥控器。</p>
+<pre><code>public class SonyRemoteControl extends RemoteControl {
+
+    public SonyRemoteControl(Tv tv) {
+        super(tv);
+    }
+
+    @Override
+    public void on() {
+        System.out.println(&quot;sonyRemoteControl,on&quot;);
+        tv.on();
+    }
+
+    @Override
+    public void off() {
+        System.out.println(&quot;sonyRemoteControl,off&quot;);
+        tv.off();
+    }
+
+    @Override
+    public void tuneTunnel() {
+        System.out.println(&quot;sonyRemoteControl,tuneTunnel&quot;);
+        tv.off();
+    }
+} </code></pre><p>   在生成sony电视机遥控器时，传入一个sony电视机对象，即可使用该遥控器实现该电视机的状态变换。</p>
+<pre><code>public class Client {
+
+   public static void main(String[] args) {
+       Tv sonyTv = new SonyTv();
+       SonyRemoteControl sonyRemoteControl = new SonyRemoteControl(sonyTv);
+       sonyRemoteControl.on();
+       sonyRemoteControl.off();
+       sonyRemoteControl.tuneTunnel();
+   }
+}</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://marchnineteen.github.io/2019/01/08/java/java-design/structure/bridge/" data-id="ckam2zs2s002umeq3fwo77wy9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-java/java-design/structure/composite" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/01/08/java/java-design/structure/composite/" class="article-date">
+  <time datetime="2019-01-08T00:00:00.000Z" itemprop="datePublished">2019-01-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/java-design-patterns/">java-design-patterns</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/01/08/java/java-design/structure/composite/">Java设计模式：组合模式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="定义-目的"><a href="#定义-目的" class="headerlink" title="定义(目的)"></a>定义(目的)</h1><p>将对象组合成树形结构来表示“整体/部分”层次关系，允许用户以相同的方式处理单独对象和组合对象。</p>
+<h1 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h1><p>组件（Component）类是组合类（Composite）和叶子类（Leaf）的父类，可以把组合类看成是树的中间节点。<br>组合对象拥有一个或多个组件对象，因此组合对象的操作可以委托给组件对象去处理，而组件对象可以是另一个组合对象或者叶子对象。</p>
+<h2 id="代码实现："><a href="#代码实现：" class="headerlink" title="代码实现："></a>代码实现：</h2><p>   定义组件抽象类</p>
+<pre><code>public abstract class Component {
+
+    protected String name;
+
+    public Component(String name) {
+        this.name = name;
+    }
+
+    public void print() {
+        print(0);
+    }
+    public abstract void print(int level);
+
+    public abstract void add(Component component);
+
+    public abstract void remove(Component component);
+}</code></pre><p>   定义一个组合类，继承组件类，并依赖了组件类，依赖的组件类可以是另一个组合对象或者叶子对象</p>
+<pre><code>public class Composite extends Component {
+
+    private List&lt;Component&gt; child;
+
+    public Composite(String name) {
+        super(name);
+        child = new ArrayList&lt;&gt;();
+    }
+
+    @Override
+    public void print(int level) {
+        for (int i = 0; i &lt; level; i++) {
+            System.out.print(&quot;--&quot;);
+        }
+        System.out.println(&quot;Composite:&quot; + name);
+        for (Component component : child) {
+            component.print(level + 1);
+        }
+    }
+
+    @Override
+    public void add(Component component) {
+        child.add(component);
+    }
+
+    @Override
+    public void remove(Component component) {
+        child.remove(component);
+    }
+}</code></pre><p>   定义一个叶子类，继承组件类。</p>
+<pre><code>public class Leaf extends Component{
+
+    public Leaf(String name) {
+        super(name);
+    }
+
+    @Override
+    public void print(int level) {
+        for (int i = 0; i &lt; level; i++) {
+            System.out.print(&quot;--&quot;);
+        }
+        System.out.println(&quot;left:&quot; + name);
+    }
+
+    @Override
+    public void add(Component component) {
+        throw new UnsupportedOperationException(); // 牺牲透明性换取单一职责原则，这样就不用考虑是叶子节点还是组合节点
+    }
+
+    @Override
+    public void remove(Component component) {
+        throw new UnsupportedOperationException();
+    }  </code></pre><p>   测试</p>
+<pre><code>public class Client {
+
+    public static void main(String[] args) {
+        Composite root = new Composite(&quot;root&quot;);
+        Component node1 = new Leaf(&quot;1&quot;);
+        Component node2 = new Composite(&quot;2&quot;);
+        Component node3 = new Leaf(&quot;3&quot;);
+        root.add(node1);
+        root.add(node2);
+        root.add(node3);
+        Component node21 = new Leaf(&quot;21&quot;);
+        Component node22 = new Composite(&quot;22&quot;);
+        node2.add(node21);
+        node2.add(node22);
+        Component node221 = new Leaf(&quot;221&quot;);
+        node22.add(node221);
+        root.print();
+    }
+}</code></pre><p>   结果</p>
+<pre><code>Composite:root
+--left:1
+--Composite:2
+----left:21
+----Composite:22
+------left:221
+--left:3</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://marchnineteen.github.io/2019/01/08/java/java-design/structure/composite/" data-id="ckam2zs2u002wmeq3cx37hb8m" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-java/java-design/structure/decorator" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/01/08/java/java-design/structure/decorator/" class="article-date">
+  <time datetime="2019-01-08T00:00:00.000Z" itemprop="datePublished">2019-01-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/java-design-patterns/">java-design-patterns</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/01/08/java/java-design/structure/decorator/">Java设计模式：装饰者</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="定义-目的"><a href="#定义-目的" class="headerlink" title="定义(目的)"></a>定义(目的)</h1><p>为对象动态添加功能。组合模式是部分和整理的关系，而装饰器模式只是额外增加某些功能。</p>
+<h1 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h1><p>装饰者（Decorator）和具体组件（ConcreteComponent）都继承自组件（Component）,<strong>装饰者组合了一个组件</strong>，这样它可以装饰其它装饰者或者具体组件。</p>
+<p>就是把这个装饰者套在被装饰者之上，从而动态扩展被装饰者的功能。</p>
+<p>装饰者的方法有一部分是自己的，这属于它的功能，然后调用被装饰者的方法实现，从而也保留了被装饰者的功能。可以看到，具体组件应当是装饰层次的最低层，因为只有具体组件的方法实现不需要依赖于其它对象。</p>
+<h2 id="代码实现："><a href="#代码实现：" class="headerlink" title="代码实现："></a>代码实现：</h2><p>设计不同种类的饮料，饮料可以添加配料，比如可以添加牛奶，并且支持动态添加新配料。每增加一种配料，该饮料的价格就会增加，要求计算一种饮料的价格。</p>
+<p>下面实现在 DarkRoast 饮料上新增新添加 Mocha 配料，之后又添加了 Milk 配料。DarkRoast 被 Mocha 包裹，Mocha 又被 Milk 包裹。它们都继承自相同父类，都有 cost() 方法，外层类的 cost() 方法调用了内层类的 cost() 方法。</p>
+<p>   定义一个组件（Component）接口,这里为饮料。装饰者和具体组件都要实现它。</p>
+<pre><code>public interface Beverage {
+
+    public double cost();
+}</code></pre><p>   具体组件实现DarkRoast饮料</p>
+<pre><code>public class DarkRoast implements Beverage {
+
+   @Override
+   public double cost() {
+       return 1;
+   }
+}</code></pre><p>   定义一个装饰者抽象类，实现了饮料接口，拥有饮料的方法，并关联了饮料接口对象。</p>
+<pre><code>public abstract class CondimentDecorator implements Beverage {
+
+    protected Beverage beverage;
+
+    public CondimentDecorator(Beverage beverage) {
+        this.beverage = beverage;
+    }
+}</code></pre><p>   装饰者实现类Milk，继承了装饰者类</p>
+<pre><code>public class Milk extends CondimentDecorator {
+
+    public Milk(Beverage beverage) {
+        super(beverage);
+    }
+
+    @Override
+    public double cost() {
+        return 1 + beverage.cost();
+    }
+}</code></pre><p>   装饰者实现类Mocha，继承了装饰者类</p>
+<pre><code>public class Mocha extends CondimentDecorator {
+
+    public Mocha(Beverage beverage) {
+        super(beverage);
+    }
+
+    @Override
+    public double cost() {
+        return 1 + beverage.cost();
+    }
+}</code></pre><p>   测试：当执行cost()方法时会一层一层从内往外调用。</p>
+<pre><code>public class Client {
+
+   public static void main(String[] args) {
+       Beverage beverage = new DarkRoast();// 一杯饮料
+       beverage = new Mocha(beverage);// 饮料里加mocha
+       beverage = new Milk(beverage);// 饮料里加牛奶
+       System.out.println(beverage.cost());//总价
+   }</code></pre><p>   }</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://marchnineteen.github.io/2019/01/08/java/java-design/structure/decorator/" data-id="ckam2zs2v002xmeq37xreab1u" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-datastructure/index" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/01/04/datastructure/index/" class="article-date">
+  <time datetime="2019-01-04T00:00:00.000Z" itemprop="datePublished">2019-01-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/datastructure/">datastructure</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/01/04/datastructure/index/">数据结构概念</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="数据结构算法学习（一）：数据结构与算法概念解析"><a href="#数据结构算法学习（一）：数据结构与算法概念解析" class="headerlink" title="数据结构算法学习（一）：数据结构与算法概念解析"></a>数据结构算法学习（一）：数据结构与算法概念解析</h1><h2 id="什么是数据结构"><a href="#什么是数据结构" class="headerlink" title="什么是数据结构"></a>什么是数据结构</h2><p>数据（data）：符号集合，处理对象。</p>
+<p>数据元素（data element），由数据项（data item） 组成。</p>
+<p>关键字（key）识别元素，主关键字（primary key） 唯一识别元素。</p>
+<p>数据结构（data structure）指数据元素之间存在的关系。包含以下三方面：</p>
+<ul>
+<li>数据的逻辑结构</li>
+<li>数据的存储结构</li>
+<li>数据操作</li>
+</ul>
+<h3 id="数据的逻辑结构"><a href="#数据的逻辑结构" class="headerlink" title="数据的逻辑结构"></a>数据的逻辑结构</h3><p>线性结构：数据元素只有一个前驱数据元素和一个后继数据元素。结构中的数据元素之间存在<strong>一对一</strong>的关系。</p>
+<p>非线性结构：</p>
+<p>1.树结构：每个数据元素只有一个前驱数据元素，可有零个或若干个后继数据元素。结构中的数据元素之间存在<strong>一对多</strong>的关系。</p>
+<p>2.图结构：每个数据元素可有零个或若干个前驱数据元素，零个或若干个后继数据元素。结构中的数据元素之间存在<strong>多对多</strong>的关系。</p>
+<h3 id="数据的存储结构"><a href="#数据的存储结构" class="headerlink" title="数据的存储结构"></a>数据的存储结构</h3><p>顺序存储结构:用数据元素在存储器中的<strong>相对位置</strong>来表示数据元素之间的逻辑关系。 </p>
+<p>链式存储结构：在每一个数据元素中增加一个存放地址的<strong>指针</strong>，用此指针来表示数据元素之间的逻辑关系。 </p>
+<h3 id="数据操作"><a href="#数据操作" class="headerlink" title="数据操作"></a>数据操作</h3><p>1.初始化。<br>2.判断是否空状态。<br>3.存取，指获得、设置指定元素值。<br>4.统计数据元素个数。<br>5.遍历（traverse），指按照某种次序访问一个数据结构中的所有元素，并且每个数据元素只被访问一次。遍历一种数据结构，将得到一个所有数据元素的线性序列。<br>6.插入（insert）、删除（remove）指定元素。<br>7.查找（search），指在数据结构中寻找满足给定条件的数据元素。<br>8.排序（sort），指对数据元素按照指定关键字值的大小递增（或递减）次序重新排列。</p>
+<h2 id="什么是算法"><a href="#什么是算法" class="headerlink" title="什么是算法"></a>什么是算法</h2><p>一个算法（Algorithm）是一个有穷规则的集合，其规则确定一个解决某一特定类型问题的操作序列。 </p>
+<p>算法定义：有穷性，确定性，输入，输出，可行性</p>
+<p>算法设计目标：正确性，可读性，健壮性，高时间效率，高空间效率</p>
+<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>算法的时间效率指算法的执行时间随问题规模的增长而增长的趋势，通常采用时间复杂度来度量算法的时间效率。T(n)=O(f(n)) </p>
+<p>一个算法花费的时间与算法中语句的执行次数成正比例，哪个算法中语句执行次数多，它花费时间就多。一个算法中的语句执行次数称为语句频度或时间频度。记为T(n)</p>
+<p>一般情况下，算法中基本操作重复执行的次数是问题规模n的某个函数，用T(n)表示，若有某个辅助函数f(n),使得当n趋近于无穷大时，T(n)/f(n)的极限值为不等于零的常数，则称f(n)是T(n)的同数量级函数。记作T(n)=O(f(n)),称O(f(n)) 为算法的渐进时间复杂度，简称时间复杂度。</p>
+<p>常见的算法的时间 复杂度之间的关系为：</p>
+<p>O(1)&lt;O(logn)&lt;O(n)&lt;O(nlog n)&lt;O(n2)&lt;O(2n)&lt;O(n!)&lt;O(n的n次幂) </p>
+<pre><code>1.一条简单语句的时间复杂度是O(1)。
+int count=0; 
+2.一个循环的时间复杂度是O(n)。
+int n=8, count=0;
+for (int i=1; i&lt;=n; i++)
+    count++;                              //循环体执行n次
+3.以下循环语句的时间复杂度是O(log2 n)。
+for (int i=1; i&lt;=n; i*=2)        //i按2的幂（1,2,4,8）递增
+    count++;                           //循环体执行1+               次
+4.以下二重循环的时间复杂度为O(n2)。
+for (int i=1; i&lt;=n; i++) 
+    for (int j=1; j&lt;=n; j++)
+5.以下二重循环的时间复杂度是O(n×log2n)。
+for (int i=1; i&lt;=n; i*=2)        //循环log2n次
+    for (int j=1; j&lt;=n; j++)     //循环n次
+6.以下二重循环的时间复杂度是O(n)。
+for (int i=1; i&lt;=n; i*=2)        //循环log2n次
+    for (int j=1; j&lt;=i; j++)      //循环i次
+    //循环次数 </code></pre><h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3><p>算法所需存储空间的度量，记作： S(n)=O( f(n) ) 其中 n 为问题的规模。</p>
+<p>一个算法在计算机存储器上所占用的存储空间，包括存储算法本身所占用的存储空间，算法的输入输出数据所占用的存储空间和算法在运行过程中临时占用的存储空间这三个方面。如果额外空间相对于输入数据量来说是个常数，则称此算法是原地工作。</p>
+<p>算法的输入输出数据所占用的存储空间是由要解决的问题决定的，是通过参数表由调用函数传递而来的，它不随本算法的不同而改变。存储算法本身所占用的存储空间与算法书写的长短成正比，要压缩这方面的存储空间，就必须编写出较短的算法。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://marchnineteen.github.io/2019/01/04/datastructure/index/" data-id="ckam2zs0n000emeq34d7qc7xf" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-linux-command/which&amp;whereis&amp;locate" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/12/04/linux-command/which&whereis&locate/" class="article-date">
+  <time datetime="2018-12-04T00:00:00.000Z" itemprop="datePublished">2018-12-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/linux-command/">linux-command</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/12/04/linux-command/which&whereis&locate/">文件查找之which&amp;whereis&amp;locate</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="which"><a href="#which" class="headerlink" title="which"></a>which</h1><h2 id="which命令格式："><a href="#which命令格式：" class="headerlink" title="which命令格式："></a>which命令格式：</h2><p>which 可执行文件名称 </p>
+<h2 id="命令功能："><a href="#命令功能：" class="headerlink" title="命令功能："></a>命令功能：</h2><p>在<strong>PATH变量指定的路径</strong>中，搜索某个系统命令的位置，并且返回第一个搜索结果。也就是说，使用which命令，就可以看到某个系统命令是否存在，以及执行的到底是哪一个位置的命令。 </p>
+<h3 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h3><pre><code>-n 　指定文件名长度，指定的长度必须大于或等于所有文件中最长的文件名。
+
+-p 　与-n参数相同，但此处的包括了文件的路径。
+
+-w 　指定输出时栏位的宽度。
+
+-V 　显示版本信息</code></pre><h1 id="whereis"><a href="#whereis" class="headerlink" title="whereis"></a>whereis</h1><p>whereis命令只能用于程序名的搜索，而且只搜索二进制文件（参数-b）、man说明文件（参数-m）和源代码文件（参数-s）。如果省略参数，则返回所有信息。</p>
+<p>和find相比，whereis查找的速度非常快，这是因为linux系统会将 系统内的所有文件都记录在一个数据库文件中，当使用whereis和下面即将介绍的locate时，会从数据库中查找数据，而不是像find命令那样，通 过遍历硬盘来查找，效率自然会很高。 </p>
+<p>但是该数据库文件并不是实时更新，默认情况下时一星期更新一次，因此，我们在用whereis和locate 查找文件时，有时会找到已经被删除的数据，或者刚刚建立文件，却无法查找到，原因就是因为数据库文件没有被更新。 </p>
+<h2 id="whereis命令格式："><a href="#whereis命令格式：" class="headerlink" title="whereis命令格式："></a>whereis命令格式：</h2><p>whereis [-bmsu] [BMS 目录名 -f ] 文件名</p>
+<h2 id="命令功能：-1"><a href="#命令功能：-1" class="headerlink" title="命令功能："></a>命令功能：</h2><p>whereis命令是定位<strong>可执行文件</strong>、<strong>源代码文件</strong>、<strong>帮助文件在文件系统中的位置</strong>。这些文件的属性应属于原始代码，二进制文件，或是帮助文件。whereis 程序还具有搜索源代码、指定备用搜索路径和搜索不寻常项的能力</p>
+<h2 id="命令参数-1"><a href="#命令参数-1" class="headerlink" title="命令参数"></a>命令参数</h2><pre><code>-b   定位可执行文件。
+
+-m   定位帮助文件。
+
+-s   定位源代码文件。
+
+-u   搜索默认路径下除可执行文件、源代码文件、帮助文件以外的其它文件。
+
+-B   指定搜索可执行文件的路径。
+
+-M   指定搜索帮助文件的路径。
+
+-S   指定搜索源代码文件的路径。</code></pre><h1 id="locate"><a href="#locate" class="headerlink" title="locate"></a>locate</h1><p>locate 让使用者可以很快速的搜寻档案系统内是否有指定的档案。其方法是先建立一个包括系统内所有档案名称及路径的数据库，之后当寻找时就只需查询这个数据库，而不必实际深入档案系统之中了。在一般的 distribution 之中，数据库的建立都被放在 crontab 中自动执行。</p>
+<h2 id="locate命令格式："><a href="#locate命令格式：" class="headerlink" title="locate命令格式："></a>locate命令格式：</h2><p>whereis [-bmsu] [BMS 目录名 -f ] 文件名</p>
+<h2 id="命令功能：-2"><a href="#命令功能：-2" class="headerlink" title="命令功能："></a>命令功能：</h2><p>locate命令可以在搜寻数据库时快速找到档案，数据库由updatedb程序来更新，updatedb是由cron daemon周期性建立的，locate命令在搜寻数据库时比由整个由硬盘资料来搜寻资料来得快，但较差劲的是locate所找到的档案若是最近才建立或 刚更名的，可能会找不到，在内定值中，updatedb每天会跑一次，可以由修改crontab来更新设定值。(etc/crontab)</p>
+<p>locate指定用在搜寻符合条件的档案，它会去储存档案与目录名称的数据库内，寻找合乎范本样式条件的档案或目录录，可以使用特殊字元（如”<em>” 或”?”等）来指定范本样式，如指定范本为kcpa</em>ner, locate会找出所有起始字串为kcpa且结尾为ner的档案或目录，如名称为kcpartner若目录录名称为kcpa_ner则会列出该目录下包括 子目录在内的所有档案。</p>
+<p>locate指令和find找寻档案的功能类似，但locate是透过update程序将硬盘中的所有档案和目录资料先建立一个索引数据库，在 执行loacte时直接找该索引，查询速度会较快，索引数据库一般是由操作系统管理，但也可以直接下达update强迫系统立即修改索引数据库。</p>
+<h2 id="命令参数-2"><a href="#命令参数-2" class="headerlink" title="命令参数"></a>命令参数</h2><pre><code>-e   将排除在寻找的范围之外。
+
+-1  如果 是 1．则启动安全模式。在安全模式下，使用者不会看到权限无法看到    的档案。这会始速度减慢，因为 locate 必须至实际的档案系统中取得档案的    权限资料。
+
+-f   将特定的档案系统排除在外，例如我们没有到理要把 proc 档案系统中的档案    放在资料库中。
+
+-q  安静模式，不会显示任何错误讯息。
+
+-n 至多显示 n个输出。
+
+-r 使用正规运算式 做寻找的条件。
+
+-o 指定资料库存的名称。
+
+-d 指定资料库的路径
+
+-h 显示辅助讯息
+
+-V 显示程式的版本讯息  </code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://marchnineteen.github.io/2018/12/04/linux-command/which&whereis&locate/" data-id="ckam2zs16000pmeq3e1hb6j4o" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-nginx/nginxBase" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/12/03/nginx/nginxBase/" class="article-date">
+  <time datetime="2018-12-03T00:00:00.000Z" itemprop="datePublished">2018-12-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/nginx/">nginx</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/12/03/nginx/nginxBase/">nginx基础配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>#全局块 start
+#配置影响nginx全局的指令。一般有运行nginx服务器的用户组，nginx进程pid存放路径，日志存放路径，配置文件引入，允许生成worker process数等。
+########### 每个指令必须有分号结束。#################
+
+#user  nobody; #配置用户或者组，默认为nobody nobody。
+worker_processes  1;#允许生成的进程数，默认为1
+
+#制定日志路径，级别。这个设置可以放入全局块，http块，server块，级别以此为：debug|info|notice|warn|error|crit|alert|emerg
+#error_log  logs/error.log;
+#error_log  logs/error.log  notice;
+#error_log  logs/error.log  info;
+
+#pid        logs/nginx.pid;#指定nginx进程运行文件存放地址
+
+#全局块 end
+
+#events块 start
+#配置影响nginx服务器或与用户的网络连接。有每个进程的最大连接数，选取哪种事件驱动模型处理连接请求，是否允许同时接受多个网路连接，开启多个网络连接序列化等
+
+events {
+    accept_mutex on;   #设置网路连接序列化，防止惊群现象发生，默认为on
+    multi_accept on;  #设置一个进程是否同时接受多个网络连接，默认为off
+    #use epoll;      #事件驱动模型，select|poll|kqueue|epoll|resig|/dev/poll|eventport
+    worker_connections  1024;    #最大连接数，默认为1024
+}
+
+#events块 end
+
+#http块 start
+#可以嵌套多个server，配置代理，缓存，日志定义等绝大多数功能和第三方模块的配置。如文件引入，mime-type定义，日志自定义，是否使用sendfile传输文件，连接超时时间，单连接请求数等。
+http {
+    include       mime.types;#文件扩展名与文件类型映射表 
+    default_type  application/octet-stream;#默认文件类型
+    #access_log off; #取消服务日志   
+
+    #log_format  main  &apos;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &apos; #自定义格式
+    #                  &apos;$status $body_bytes_sent &quot;$http_referer&quot; &apos;
+    #                  &apos;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&apos;;
+
+    #access_log  logs/access.log  main;  #combined为日志格式的默认值
+
+    sendfile        on; #允许sendfile方式传输文件，默认为off，可以在http块，server块，location块。
+    #sendfile_max_chunk 100k;  #每个进程每次调用传输数量不能大于设定的值，默认为0，即不设上限。
+
+    #tcp_nopush     on; 
+    #开启或者关闭nginx在FreeBSD上使用TCP_NOPUSH套接字选项， 在Linux上使用TCP_CORK套接字选项。 选项仅在使用sendfile的时候才开启。 #开启此选项允许在Linux和FreeBSD4.*上将响应头和正文的开始部分一起发送；一次性发送整个文件
+
+    #keepalive_timeout  0; #连接超时时间，默认为65s，可以在http，server，location块。
+    keepalive_timeout  65;
+
+    #gzip  on;是否开启Gzip 压缩
+    #gzip_min_length 1k; 不压缩临界值，大于1K的才压缩，一般不用改
+    #gzip_buffers 4 16k;
+    #gzip_http_version 1.0; 用了反向代理的话，末端通信是HTTP/1.0，默认是HTTP/1.1
+    #gzip_comp_level 2; 压缩级别，1-10，数字越大压缩的越好，时间也越长
+    #gzip_types text/plain application/x-javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png; #进行压缩的文件类型，缺啥补啥就行了，JavaScript有两种写法，最好都写上吧，总有人抱怨js文件没有压缩，其实多写一种格式就行了
+    #gzip_vary off; 跟Squid等缓存服务有关，on的话会在Header里增加&quot;Vary: Accept-Encoding&quot;
+    #gzip_disable &quot;MSIE [1-6]\.&quot;; IE6对Gzip不怎么友好，不给它Gzip了
+
+    #server块 start
+    #配置虚拟主机的相关参数，一个http中可以有多个server。
+
+    server {
+        listen       8080; #监听端口
+        server_name  localhost; #监听地址 
+
+        #charset koi8-r;
+
+        #access_log  logs/host.access.log  main;
+
+        #location块 start 
+        #配置请求的路由，以及各种页面的处理情况。
+
+        location / {
+            root   html; #根目录
+            index  index.html index.htm; #设置默认页
+        }
+        #location块 end 
+
+        #error_page  404              /404.html;
+
+        # redirect server error pages to the static page /50x.html
+        #
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+
+        # proxy the PHP scripts to Apache listening on 127.0.0.1:80
+        #
+        #location ~ \.php$ {
+        #    proxy_pass   http://127.0.0.1;
+        #}
+
+        # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+        #
+        #location ~ \.php$ {
+        #    root           html;
+        #    fastcgi_pass   127.0.0.1:9000;
+        #    fastcgi_index  index.php;
+        #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+        #    include        fastcgi_params;
+        #}
+
+        # deny access to .htaccess files, if Apache&apos;s document root
+        # concurs with nginx&apos;s one
+        #
+        #location ~ /\.ht {
+        #    deny  all;
+        #}
+    }
+
+    #server块 end
+
+    # another virtual host using mix of IP-, name-, and port-based configuration
+    #
+    #server {
+    #    listen       8000;
+    #    listen       somename:8080;
+    #    server_name  somename  alias  another.alias;
+
+    #    location / {
+    #        root   html;
+    #        index  index.html index.htm;
+    #    }
+    #}
+
+
+    # HTTPS server
+    #
+    #server {
+    #    listen       443 ssl;
+    #    server_name  localhost;
+
+    #    ssl_certificate      cert.pem;
+    #    ssl_certificate_key  cert.key;
+
+    #    ssl_session_cache    shared:SSL:1m;
+    #    ssl_session_timeout  5m;
+
+    #    ssl_ciphers  HIGH:!aNULL:!MD5;
+    #    ssl_prefer_server_ciphers  on;
+
+    #    location / {
+    #        root   html;
+    #        index  index.html index.htm;
+    #    }
+    #}
+
+}
+#http块 end</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://marchnineteen.github.io/2018/12/03/nginx/nginxBase/" data-id="ckam2zs17000qmeq3h8lb3ti9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-linux-command/chmod" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/11/29/linux-command/chmod/" class="article-date">
+  <time datetime="2018-11-29T00:00:00.000Z" itemprop="datePublished">2018-11-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/linux-command/">linux-command</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/11/29/linux-command/chmod/">chmod指令学习</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="命令格式："><a href="#命令格式：" class="headerlink" title="命令格式："></a>命令格式：</h1><p>chmod [-cfvR] [–help] [–version] mode file   </p>
+<h1 id="命令功能："><a href="#命令功能：" class="headerlink" title="命令功能："></a>命令功能：</h1><p>用于改变文件或目录的访问权限，用它控制文件或目录的访问权限。</p>
+<h1 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h1><h2 id="必要参数："><a href="#必要参数：" class="headerlink" title="必要参数："></a>必要参数：</h2><pre><code>-c 当发生改变时，报告处理信息
+-f 错误信息不输出
+-R 处理指定目录以及其子目录下的所有文件
+-v 运行时显示详细处理信息</code></pre><h2 id="选择参数："><a href="#选择参数：" class="headerlink" title="选择参数："></a>选择参数：</h2><pre><code>--reference=&lt;目录或者文件&gt; 设置成具有指定目录或者文件具有相同的权限
+--version 显示版本信息
+&lt;权限范围&gt;+&lt;权限设置&gt; 使权限范围内的目录或者文件具有指定的权限
+&lt;权限范围&gt;-&lt;权限设置&gt; 删除权限范围的目录或者文件的指定权限
+&lt;权限范围&gt;=&lt;权限设置&gt; 设置权限范围内的目录或者文件的权限为指定的值    </code></pre><h3 id="权限范围："><a href="#权限范围：" class="headerlink" title="权限范围："></a>权限范围：</h3><pre><code>u ：目录或者文件的当前的用户
+g ：目录或者文件的当前的群组
+o ：除了目录或者文件的当前用户或群组之外的用户或者群组
+a ：所有的用户及群组</code></pre><h3 id="权限代号："><a href="#权限代号：" class="headerlink" title="权限代号："></a>权限代号：</h3><pre><code>r ：读权限，用数字4表示
+w ：写权限，用数字2表示
+x ：执行权限，用数字1表示
+- ：删除权限，用数字0表示
+s ：特殊权限 </code></pre><h3 id="文字设定法"><a href="#文字设定法" class="headerlink" title="文字设定法:"></a>文字设定法:</h3><pre><code>chmod ［who］ ［+ | - | =］ ［mode］ 文件名
+例子：
+chmod u+r 给拥有者添加可读权限   </code></pre><h3 id="数字设定法"><a href="#数字设定法" class="headerlink" title="数字设定法:"></a>数字设定法:</h3><ul>
+<li>0表示没有权限，1表示可执行权限，2表示可写权限，4表示可读权限，然后将其相加。所以数字属性的格式应为3个从0到7的八进制数，其顺序是（u）（g）（o）</li>
+</ul>
+<pre><code>chmod ［mode］ 文件名
+chmod 751 file 给file的属主分配读、写、执行(7)的权限，给file的所在组分配读、执行(5)的权限，给其他用户分配执行(1)的权限         </code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://marchnineteen.github.io/2018/11/29/linux-command/chmod/" data-id="ckam2zs0r000hmeq3gsbd4ld2" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-linux-command/chown" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/11/29/linux-command/chown/" class="article-date">
+  <time datetime="2018-11-29T00:00:00.000Z" itemprop="datePublished">2018-11-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/linux-command/">linux-command</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/11/29/linux-command/chown/">chown指令学习</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="命令格式："><a href="#命令格式：" class="headerlink" title="命令格式："></a>命令格式：</h1><p>chown [选项]… [所有者][:[组]] 文件…</p>
+<h1 id="命令功能："><a href="#命令功能：" class="headerlink" title="命令功能："></a>命令功能：</h1><p>通过chown改变文件的拥有者和群组。在更改文件的所有者或所属群组时，可以使用用户名称和用户识别码设置。普通用户不能将自己的文件改变成其他的拥有者。其操作权限一般为管理员。</p>
+<h1 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h1><h2 id="必要参数："><a href="#必要参数：" class="headerlink" title="必要参数："></a>必要参数：</h2><pre><code>-c 显示更改的部分的信息
+-f 忽略错误信息
+-h 修复符号链接
+-R 处理指定目录以及其子目录下的所有文件
+-v 显示详细的处理信息
+-deference 作用于符号链接的指向，而不是链接文件本身</code></pre><h2 id="选择参数："><a href="#选择参数：" class="headerlink" title="选择参数："></a>选择参数：</h2><pre><code>--reference=&lt;目录或文件&gt; 把指定的目录/文件作为参考，把操作的文件/目录设置成参考文件/目录相同拥有者和群组
+--from=&lt;当前用户：当前群组&gt; 只有当前用户和群组跟指定的用户和群组相同时才进行改变
+--help 显示帮助信息
+--version 显示版本信息</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://marchnineteen.github.io/2018/11/29/linux-command/chown/" data-id="ckam2zs0s000imeq3ak9i4wrn" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-java/jvm/jvm(1)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/10/31/java/jvm/jvm(1)/" class="article-date">
+  <time datetime="2018-10-31T00:00:00.000Z" itemprop="datePublished">2018-10-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/JVM/">JVM</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/10/31/java/jvm/jvm(1)/">jvm学习（一）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一：内存区域"><a href="#一：内存区域" class="headerlink" title="一：内存区域"></a>一：内存区域</h1><p><img src="/uploads/java/jvm/jvm%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F.jpg" alt="内存区域"></p>
+<h2 id="线程私有-针对于方法-："><a href="#线程私有-针对于方法-：" class="headerlink" title="线程私有(针对于方法)："></a>线程私有(针对于方法)：</h2><p>   程序计数器（Program Count Register）：如果线程正在执行java方法，计数器记录正在执行的虚拟机字节码地址；Native方法，值为空。</p>
+<p>   虚拟机栈（Vm Stack）: 描述Java方法执行的内存模型：每个方法在执行的同时会创建一个栈帧用于存储<strong>局部变量表</strong>、操作数栈、动态链接、方法出口等。</p>
+<ul>
+<li><p>人们常说的Java内存分为堆内存（Heap）和栈内存（Stack），这个栈就是虚拟机栈，或者说是机栈中局部变量表部分。</p>
+</li>
+<li><p>局部变量表（虚拟机栈）存放编译器可知的<strong>基本数据类型</strong>和<strong>对象引用</strong>。</p>
+</li>
+<li><p>当线程请求的栈深度超过最大值，会抛出 StackOverflowError 异常；栈进行动态扩展时如果无法申请到足够内存，会抛出 OutOfMemoryError 异常。</p>
+<p>本地方法栈（Native Method Stack）：作用与虚拟机栈相似，本地方法栈执行Native方法。</p>
+</li>
+</ul>
+<h2 id="线程共享（针对于Class）："><a href="#线程共享（针对于Class）：" class="headerlink" title="线程共享（针对于Class）："></a>线程共享（针对于Class）：</h2><p>   堆（Heap）：存放<strong>所有对象实例</strong>以及<strong>数组</strong>，是垃圾回收的主要区域。</p>
+<ul>
+<li><p>现在垃圾收集器基本采用<strong>分代收集算法</strong>，主要思想为针对不用类型的对象采取不同的垃圾回收算法，可将堆分为<strong>新生代</strong>和<strong>老年代</strong>，还可细分。</p>
+</li>
+<li><p>从内存分配的角度，堆可能分出多个线程私有的分配缓冲区(TLAB)，只是为了更好回收内存，更快分配内存，存储对象不变。</p>
+</li>
+<li><p>堆无需连续内存，可以动态增加，增加失败会抛出OutOfMemoryError 异常。可以通过 -Xms 和 -Xmx 两个虚拟机参数来指定一个程序的堆内存大小，第一个参数设置初始值，第二个参数设置最大值。java -Xms1M -Xmx2M。</p>
+<p>方法区（Method Area）：用于存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。</p>
+</li>
+<li><p>和堆一样不需要连续的内存，还可以选择不实现垃圾回收，对这一区域内存回收目标主要是针对常量池和类型的卸载，一般难以实现，效果较差。</p>
+</li>
+<li><p>HotSpot 虚拟机把它当成永久代来进行垃圾回收。但是很难确定永久代的大小，因为它受到很多因素影响，并且每次 Full GC 之后永久代的大小都会改变，所以经常会抛出 OutOfMemoryError 异常。为了更容易管理方法区，从 JDK 1.8 开始，移除永久代，并把方法区移至元空间，它位于本地内存中，而不是虚拟机内存中。</p>
+<p>运行时常量池（Runtime Constant Pool）：是方法区的一部分。Class 文件中的常量池（编译器生成的各种字面量和符号引用）会在类加载后被放入这个区域。</p>
+</li>
+<li><p>具备动态性，除了再编译器生成的常量放入这一区域外，还允许动态生成。常量不仅仅再编译期间才能产生，在运行时也可能产生新的常量，例如String类的intern()。</p>
+</li>
+<li><p>受到方法区内存大小限制，无法申请到内存时会抛出OutOfMemoryError异常。</p>
+<p>直接内存：不是虚拟机运行时数据区的一部分。jdk1.4中引入NIO，可以直接使用native函数库分配堆外的内存，然后通过一个存储在Java堆里的DirectByteBuffer对象作为这块内存的引用进行操作，避免了Java堆和Native对中来回复制数据显著提高性能。</p>
+</li>
+</ul>
+<h1 id="二：HotSpot虚拟机对象"><a href="#二：HotSpot虚拟机对象" class="headerlink" title="二：HotSpot虚拟机对象"></a>二：HotSpot虚拟机对象</h1><h2 id="对象的创建"><a href="#对象的创建" class="headerlink" title="对象的创建"></a>对象的创建</h2><p>   空间划分（内存分配）：堆采用的垃圾收集器是否带有压缩整理功能–&gt;堆是否规整–&gt;内存的分配方式，规整采用<strong>指针碰撞</strong>方法，否则采用<strong>空闲列表</strong>方式</p>
+<p>   对象在创建中是否频繁（并发问题）：</p>
+<ul>
+<li><p>同步处理，CAS加失败重试保证原子性</p>
+</li>
+<li><p>本地线程分配缓冲区（TLAB）：每个线程在Java堆中预先分配一小块内存。线程私有内存。</p>
+</li>
+<li><p>内存分配完成后，进行对象实例字段的初始化（不包括对象头，内存空间都为零值）；若使用TLAB，则可提前在TLAB中分配。</p>
+<p>对象头设置：存放类的元数据信息、对象的哈希码、对象的GC分代年龄等信息。虚拟机当前运行状态（如是否启用偏向锁）不同，对象头有不同的设置方式。</p>
+<p>上述工作完成后，虚拟机角度新的对象已经产生，程序角度对象创建刚刚开始–<init>方法还未执行。</p>
+</li>
+</ul>
+<h2 id="对象的内存布局"><a href="#对象的内存布局" class="headerlink" title="对象的内存布局"></a>对象的内存布局</h2><p>   <img src="/uploads/java/jvm/%E5%AF%B9%E8%B1%A1%E5%9C%A8%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80.jpg" alt="对象在内存布局"></p>
+<h2 id="对象的访问定位"><a href="#对象的访问定位" class="headerlink" title="对象的访问定位"></a>对象的访问定位</h2><p>   Java程序通过栈上的reference（指向对象的引用）数据操作堆上的具体数据。访问方式由虚拟机实现。主流方式有2种。</p>
+<ul>
+<li>句柄：堆中划分句柄池，reference存储对象的句柄地址，句柄包含<strong>对象实例数据</strong>与<strong>类型数据（类数据）</strong>各自的具体地址。<br>优点：在对象被移动时（垃圾收集时移动对象是非常普遍的行为）只会改变句柄中的实例数据指针，reference本事不需要修改。</li>
+<li>直接指针：reference存储的直接是对象的地址，对象的实例数据中要放置访问类型数据的指针。<br>优点：速度快，节省了一次指针定位的时间开销。</li>
+</ul>
+<h1 id="三：垃圾收集"><a href="#三：垃圾收集" class="headerlink" title="三：垃圾收集"></a>三：垃圾收集</h1><p>   垃圾收集需要考虑三个问题：<strong>回收哪些内存</strong>，<strong>什么时候回收</strong>，<strong>怎么回收</strong></p>
+<p>   垃圾收集器主要针对堆和方法区进行。</p>
+<p>   程序计数器、虚拟机栈和本地方法栈这三个区域属于线程私有的，只存在于线程的生命周期内，线程结束之后也会消失，因此不需要对这三个区域进行垃圾回收。</p>
+<h2 id="判断一个对象是否可被回收（回收哪些内存）"><a href="#判断一个对象是否可被回收（回收哪些内存）" class="headerlink" title="判断一个对象是否可被回收（回收哪些内存）"></a>判断一个对象是否可被回收（回收哪些内存）</h2><h3 id="1-引用计数算法"><a href="#1-引用计数算法" class="headerlink" title="1.引用计数算法"></a>1.引用计数算法</h3><p>   给对象添加一个引用计数器，当对象增加引用时就加一，失效一个引用时就减一。引用计数器为0的对象表示可以回收。 </p>
+<ul>
+<li><p>由于存在循环引用，引用计数器永远不为0，导致永远不会被回收。</p>
+<h3 id="2-可达性分析算法"><a href="#2-可达性分析算法" class="headerlink" title="2.可达性分析算法"></a>2.可达性分析算法</h3><p>通过 Roots作为起点，能够到达的对象被视为存活，不可达的对象可以回收。<br><img src="/uploads/java/jvm/%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95.png" alt="可达性分析算法"></p>
+<p>可作为GC Roots的对象：（全局性引用如常量和类静态变量，应用上下文如帧栈中的本地变量表）</p>
+</li>
+<li><p>虚拟机栈（帧栈中的本地变量两）中引用的对象</p>
+</li>
+<li><p>方法区中的类静态属性引用的对象</p>
+</li>
+<li><p>方法区中常量引用的对象</p>
+</li>
+<li><p>本地方法栈中的JNI（即一般说的Native方法）引用的对象。</p>
+<h3 id="3-对象生存还是死亡（finalize-方法）"><a href="#3-对象生存还是死亡（finalize-方法）" class="headerlink" title="3.对象生存还是死亡（finalize()方法）"></a>3.对象生存还是死亡（finalize()方法）</h3><p>在可达性分析算法过程中不可达的对象并非一定会被回收。在可达性分析算法被认为无引用链后，需要2步才能真正宣告对象已死。</p>
+</li>
+<li><p>进行一次筛选，筛选条件为对象是否有必要执行finalize()方法，若对象未执行过finalize方法，将其放入F-Queue队列，由一低优先级线程执行该队列中对象的finalize方法。<br>执行finalize方法完毕后，GC会再次判断该对象是否可达，若不可达，则进行回收，否则，对象“复活”。</p>
+</li>
+<li><p>若未覆盖finalize方法，则直接将其回收。</p>
+<p>自救只能进行一次，如果回收的对象之前调用了 finalize() 方法自救，后面回收时不会调用 finalize() 方法。</p>
+<h3 id="4-方法区回收"><a href="#4-方法区回收" class="headerlink" title="4.方法区回收"></a>4.方法区回收</h3><p>因为方法区主要存放永久代对象，而永久代对象的回收率比新生代低很多，因此在方法区上进行回收性价比不高。主要是对常量池的回收和对类的卸载。</p>
+<p>在大量使用反射、动态代理、CGLib 等 ByteCode 框架、动态生成 JSP 以及 OSGi 这类频繁自定义 ClassLoader 的场景都需要虚拟机具备类卸载功能，以保证不会出现内存溢出。</p>
+<p>类的卸载条件很多，需要满足以下三个条件，并且满足了也不一定会被卸载：</p>
+</li>
+<li><p>该类所有的实例都已经被回收，也就是堆中不存在该类的任何实例。</p>
+</li>
+<li><p>加载该类的 ClassLoader 已经被回收。</p>
+</li>
+<li><p>该类对应的 Class 对象没有在任何地方被引用，也就无法在任何地方通过反射访问该类方法。</p>
+<p>可以通过 -Xnoclassgc 参数来控制是否对类进行卸载。</p>
+</li>
+</ul>
+<h2 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h2><p>   无论是通过引用计数算法判断对象的引用数量，还是通过可达性分析算法判断对象是否可达，判定对象是否可被回收都与引用有关。</p>
+<p>   Java 提供了四种强度不同的引用类型。</p>
+<h3 id="1-强引用"><a href="#1-强引用" class="headerlink" title="1.强引用"></a>1.强引用</h3><p>   被强引用关联的对象不会被回收。使用 new 一个新对象的方式来创建强引用。 </p>
+<pre><code>Object obj = new Object();</code></pre><h3 id="2-软引用"><a href="#2-软引用" class="headerlink" title="2.软引用"></a>2.软引用</h3><p>   被软引用关联的对象只有在内存不够的情况下才会被回收。使用 SoftReference 类来创建软引用。 </p>
+<pre><code>Object obj = new Object();
+SoftReference&lt;Object&gt; sf = new SoftReference&lt;Object&gt;(obj);
+obj = null;  // 使对象只被软引用关联</code></pre><h3 id="3-弱引用"><a href="#3-弱引用" class="headerlink" title="3.弱引用"></a>3.弱引用</h3><p>   被弱引用关联的对象一定会被回收，也就是说它只能存活到下一次垃圾回收发生之前。使用 WeakReference 类来实现弱引用。</p>
+<pre><code>Object obj = new Object();
+SoftReference&lt;Object&gt; sf = new SoftReference&lt;Object&gt;(obj);
+obj = null;  // 使对象只被软引用关联</code></pre><h3 id="4-虚引用"><a href="#4-虚引用" class="headerlink" title="4.虚引用"></a>4.虚引用</h3><p>   被弱引用关联的对象一定会被回收，也就是说它只能存活到下一次垃圾回收发生之前。使用 WeakReference 类来实现弱引用。</p>
+<pre><code>Object obj = new Object();
+SoftReference&lt;Object&gt; sf = new SoftReference&lt;Object&gt;(obj);
+obj = null;  // 使对象只被软引用关联</code></pre><h2 id="垃圾收集算法（怎么回收）"><a href="#垃圾收集算法（怎么回收）" class="headerlink" title="垃圾收集算法（怎么回收）"></a>垃圾收集算法（怎么回收）</h2><h3 id="1-标记-清除"><a href="#1-标记-清除" class="headerlink" title="1.标记 - 清除"></a>1.标记 - 清除</h3><p>   <img src="/uploads/java/jvm/%E6%A0%87%E8%AE%B0-%E6%B8%85%E9%99%A4.jpg" alt="标记-清除"><br>   标记要回收的对象，然后清除。</p>
+<p>   不足：</p>
+<p>   标记和清除过程效率都不高；<br>   会产生大量不连续的内存碎片，导致无法给大对象分配内存。</p>
+<h3 id="2-标记-整理"><a href="#2-标记-整理" class="headerlink" title="2.标记 - 整理"></a>2.标记 - 整理</h3><p>   <img src="/uploads/java/jvm/%E6%A0%87%E8%AE%B0-%E6%95%B4%E7%90%86.jpg" alt="标记-整理"><br>   让所有存活的对象都向一端移动，然后直接清理掉端边界以外的内存。</p>
+<h3 id="3-复制"><a href="#3-复制" class="headerlink" title="3.复制"></a>3.复制</h3><p>   <img src="/uploads/java/jvm/%E5%A4%8D%E5%88%B6.jpg" alt="复制"><br>   将内存划分为大小相等的两块，每次只使用其中一块，当这一块内存用完了就将还存活的对象复制到另一块上面，然后再把使用过的内存空间进行一次清理。</p>
+<p>   主要不足是只使用了内存的一半。</p>
+<p>   现在的商业虚拟机都采用这种收集算法来回收新生代，但是并不是将新生代划分为大小相等的两块，而是分为一块较大的 Eden 空间和两块较小的 Survivor 空间，每次使用 Eden 空间和其中一块 Survivor。在回收时，将 Eden 和 Survivor 中还存活着的对象一次性复制到另一块 Survivor 空间上，最后清理 Eden 和使用过的那一块 Survivor。</p>
+<p>   HotSpot 虚拟机的 Eden 和 Survivor 的大小比例默认为 8:1，保证了内存的利用率达到 90%。如果每次回收有多于 10% 的对象存活，那么一块 Survivor 空间就不够用了，此时需要依赖于老年代进行分配担保，也就是借用老年代的空间存储放不下的对象。</p>
+<h3 id="4-分代收集"><a href="#4-分代收集" class="headerlink" title="4.分代收集"></a>4.分代收集</h3><p>   现在的商业虚拟机采用分代收集算法，它根据对象存活周期将内存划分为几块，不同块采用适当的收集算法。</p>
+<p>   一般将堆分为新生代和老年代。</p>
+<ul>
+<li>新生代使用：复制算法</li>
+<li>老年代使用：标记 - 清除 或者 标记 - 整理 算法</li>
+</ul>
+<h2 id="垃圾收集器"><a href="#垃圾收集器" class="headerlink" title="垃圾收集器"></a>垃圾收集器</h2><h3 id="HotSpot垃圾收集器"><a href="#HotSpot垃圾收集器" class="headerlink" title="HotSpot垃圾收集器"></a>HotSpot垃圾收集器</h3><p>   <img src="/uploads/java/jvm/HotSpot%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8.jpg" alt="HotSpot垃圾收集器"></p>
+<p>   连线表示可以配合使用。</p>
+<ul>
+<li><p>单线程与多线程：单线程指的是垃圾收集器只使用一个线程进行收集，而多线程使用多个线程；</p>
+</li>
+<li><p>串行与并行：串行指的是垃圾收集器与用户程序交替执行，这意味着在执行垃圾收集的时候需要停顿用户程序；并行指的是垃圾收集器和用户程序同时执行。除了 CMS 和 G1 之外，其它垃圾收集器都是以串行的方式执行。 </p>
+<h3 id="1-Serial-收集器"><a href="#1-Serial-收集器" class="headerlink" title="1.Serial 收集器"></a>1.Serial 收集器</h3><p>串行，单线程。优点：高效，单cpu环境没有线程交互的切换，拥有最高的单线程收集效率。</p>
+</li>
+</ul>
+<p>   <strong>client模式的下的默认新生代</strong>垃圾收集器。因为在该应用场景下，分配给虚拟机管理的内存一般来说不会很大。</p>
+<p>   Serial 收集器收集几十兆甚至一两百兆的新生代停顿时间可以控制在一百多毫秒以内，只要不是太频繁，这点停顿是可以接受的。</p>
+<h3 id="2-ParNew-收集器"><a href="#2-ParNew-收集器" class="headerlink" title="2.ParNew 收集器"></a>2.ParNew 收集器</h3><p>   Serial 收集器的多线程版本。</p>
+<p>   是 <strong>Server 模式下的虚拟机首选新生代</strong>收集器，除了性能原因外，主要是因为除了 Serial 收集器，只有它能与 CMS 收集器配合工作。</p>
+<p>   默认开启的线程数量与 CPU 数量相同，可以使用 -XX:ParallelGCThreads 参数来设置线程数。</p>
+<h3 id="3-Parallel-Scavenge-收集器"><a href="#3-Parallel-Scavenge-收集器" class="headerlink" title="3.Parallel Scavenge 收集器"></a>3.Parallel Scavenge 收集器</h3><p>   多线程收集器。</p>
+<p>   其它收集器关注点是尽可能缩短垃圾收集时用户线程的停顿时间，而它的目标是达到一个可控制的吞吐量，它被称为“吞吐量优先”收集器。这里的吞吐量指 CPU 用于运行用户代码的时间占总时间的比值。</p>
+<p>   停顿时间越短就越适合需要与用户交互的程序，良好的响应速度能提升用户体验。而高吞吐量则可以高效率地利用 CPU 时间，尽快完成程序的运算任务，适合在后台运算而不需要太多交互的任务。</p>
+<p>   缩短停顿时间是以牺牲吞吐量和新生代空间来换取的：新生代空间变小，垃圾回收变得频繁，导致吞吐量下降。</p>
+<p>   可以通过一个开关参数打开 GC 自适应的调节策略（GC Ergonomics），就不需要手工指定新生代的大小（-Xmn）、Eden 和 Survivor 区的比例、晋升老年代对象年龄等细节参数了。虚拟机会根据当前系统的运行情况收集性能监控信息，动态调整这些参数以提供最合适的停顿时间或者最大的吞吐量。</p>
+<h3 id="4-Serial-Old-收集器"><a href="#4-Serial-Old-收集器" class="headerlink" title="4.Serial Old 收集器"></a>4.Serial Old 收集器</h3><p>   是 Serial 收集器的老年代版本，也是给 Client 模式下的虚拟机使用。如果用在 Server 模式下，它有两大用途：</p>
+<ul>
+<li><p>在 JDK 1.5 以及之前版本（Parallel Old 诞生以前）中与 Parallel Scavenge 收集器搭配使用。</p>
+</li>
+<li><p>作为 CMS 收集器的后备预案，在并发收集发生 Concurrent Mode Failure 时使用。</p>
+<h3 id="5-Parallel-Old-收集器"><a href="#5-Parallel-Old-收集器" class="headerlink" title="5.Parallel Old 收集器"></a>5.Parallel Old 收集器</h3><p>是 Parallel Scavenge 收集器的老年代版本。</p>
+<p>在注重吞吐量以及 CPU 资源敏感的场合，都可以优先考虑 Parallel Scavenge 加 Parallel Old 收集器。</p>
+<h3 id="6-CMS-收集器"><a href="#6-CMS-收集器" class="headerlink" title="6. CMS 收集器"></a>6. CMS 收集器</h3><p><img src="/uploads/java/jvm/CMS%E6%94%B6%E9%9B%86%E5%99%A8.jpg" alt="CMS收集器"><br>CMS（Concurrent Mark Sweep），Mark Sweep 指的是标记 - 清除算法。</p>
+<p>分为以下四个流程：</p>
+</li>
+<li><p>初始标记：仅仅只是标记一下 GC Roots 能直接关联到的对象，速度很快，需要停顿。</p>
+</li>
+<li><p>并发标记：进行 GC Roots Tracing 的过程，它在整个回收过程中耗时最长，不需要停顿。</p>
+</li>
+<li><p>重新标记：为了修正并发标记期间因用户程序继续运作而导致标记产生变动的那一部分对象的标记记录，需要停顿。</p>
+</li>
+<li><p>并发清除：不需要停顿。</p>
+<p>在整个过程中耗时最长的并发标记和并发清除过程中，收集器线程都可以与用户线程一起工作，不需要进行停顿。</p>
+<p>具有以下缺点：</p>
+</li>
+<li><p>吞吐量低：低停顿时间是以牺牲吞吐量为代价的，导致 CPU 利用率不够高。</p>
+</li>
+<li><p>无法处理浮动垃圾，可能出现 Concurrent Mode Failure。浮动垃圾是指并发清除阶段由于用户线程继续运行而产生的垃圾，这部分垃圾只能到下一次 GC 时才能进行回收。由于浮动垃圾的存在，因此需要预留出一部分内存，意味着 CMS 收集不能像其它收集器那样等待老年代快满的时候再回收。如果预留的内存不够存放浮动垃圾，就会出现 Concurrent Mode Failure，这时虚拟机将临时启用 Serial Old 来替代 CMS。</p>
+</li>
+<li><p>标记 - 清除算法导致的空间碎片，往往出现老年代空间剩余，但无法找到足够大连续空间来分配当前对象，不得不提前触发一次 Full GC。</p>
+<h3 id="7-G1-收集器"><a href="#7-G1-收集器" class="headerlink" title="7. G1 收集器"></a>7. G1 收集器</h3><p><img src="/uploads/java/jvm/CMS%E6%94%B6%E9%9B%86%E5%99%A8.jpg" alt="CMS收集器"><br>G1（Garbage-First），它是一款面向<strong>服务端应用</strong>的垃圾收集器，在多 CPU 和大内存的场景下有很好的性能。HotSpot 开发团队赋予它的使命是未来可以替换掉 CMS 收集器。</p>
+<p>堆被分为新生代和老年代，其它收集器进行收集的范围都是整个新生代或者老年代，而 G1 可以直接对新生代和老年代一起回收。</p>
+<p><img src="/uploads/java/jvm/HotspotHeapStructure.png" alt="HotspotHeapStructure"><br>G1 把堆划分成多个大小相等的独立区域（Region），新生代和老年代不再物理隔离。         </p>
+<p><img src="/uploads/java/jvm/G1HeapAllocation.png" alt="G1HeapAllocation"></p>
+<p>通过引入 Region 的概念，从而将原来的一整块内存空间划分成多个的小空间，使得每个小空间可以单独进行垃圾回收。这种划分方法带来了很大的灵活性，使得可预测的停顿时间模型成为可能。通过记录每个 Region 垃圾回收时间以及回收所获得的空间（这两个值是通过过去回收的经验获得），并维护一个优先列表，每次根据允许的收集时间，优先回收价值最大的 Region。</p>
+<p>每个 Region 都有一个 Remembered Set，用来记录该 Region 对象的引用对象所在的 Region。通过使用 Remembered Set，在做可达性分析的时候就可以避免全堆扫描。</p>
+<p><img src="/uploads/java/jvm/G1%E6%94%B6%E9%9B%86%E5%99%A8.jpg" alt="G1收集器">   </p>
+<p>如果不计算维护 Remembered Set 的操作，G1 收集器的运作大致可划分为以下几个步骤：</p>
+</li>
+<li><p>初始标记</p>
+</li>
+<li><p>并发标记</p>
+</li>
+<li><p>重新标记：为了修正在并发标记期间因用户程序继续运作而导致标记产生变动的那一部分标记记录，虚拟机将这段时间对象变化记录在线程的 Remembered Set Logs 里面，最终标记阶段需要把 Remembered Set Logs 的数据合并到 Remembered Set 中。这阶段需要停顿线程，但是可并行执行。</p>
+</li>
+<li><p>并发清除：首先对各个 Region 中的回收价值和成本进行排序，根据用户所期望的 GC 停顿时间来制定回收计划。此阶段其实也可以做到与用户程序一起并发执行，但是因为只回收一部分 Region，时间是用户可控制的，而且停顿用户线程将大幅度提高收集效率。</p>
+<p>具备如下特点：</p>
+</li>
+<li><p>空间整合：整体来看是基于“标记 - 整理”算法实现的收集器，从局部（两个 Region 之间）上来看是基于“复制”算法实现的，这意味着运行期间不会产生内存空间碎片。</p>
+</li>
+<li><p>可预测的停顿：能让使用者明确指定在一个长度为 M 毫秒的时间片段内，消耗在 GC 上的时间不得超过 N 毫秒。Full GC。</p>
+</li>
+</ul>
+<h1 id="四：内存分配与回收策略"><a href="#四：内存分配与回收策略" class="headerlink" title="四：内存分配与回收策略"></a>四：内存分配与回收策略</h1><h2 id="Minor-GC-和-Full-GC"><a href="#Minor-GC-和-Full-GC" class="headerlink" title="Minor GC 和 Full GC"></a>Minor GC 和 Full GC</h2><ul>
+<li>Minor GC：发生在新生代上，因为新生代对象存活时间很短，因此 Minor GC 会频繁执行，执行的速度一般也会比较快。</li>
+<li>Full GC：发生在老年代上，老年代对象其存活时间长，因此 Full GC 很少执行，执行速度会比 Minor GC 慢很多。</li>
+</ul>
+<h2 id="内存分配策略"><a href="#内存分配策略" class="headerlink" title="内存分配策略"></a>内存分配策略</h2><h3 id="1-对象优先在Eden分配"><a href="#1-对象优先在Eden分配" class="headerlink" title="1.对象优先在Eden分配"></a>1.对象优先在Eden分配</h3><p>   大多数情况下，对象在新生代 Eden 区分配，当 Eden 区空间不够时，发起 Minor GC。</p>
+<h3 id="2-大对象直接进入老年代"><a href="#2-大对象直接进入老年代" class="headerlink" title="2.大对象直接进入老年代"></a>2.大对象直接进入老年代</h3><p>   大对象是指需要连续内存空间的对象，最典型的大对象是那种很长的字符串以及数组。</p>
+<p>   经常出现大对象会提前触发垃圾收集以获取足够的连续空间分配给大对象。</p>
+<p>   -XX:PretenureSizeThreshold，大于此值的对象直接在老年代分配，避免在 Eden 区和 Survivor 区之间的大量内存复制。</p>
+<h3 id="3-长期存活的对象进入老年代"><a href="#3-长期存活的对象进入老年代" class="headerlink" title="3.长期存活的对象进入老年代"></a>3.长期存活的对象进入老年代</h3><p>   为对象定义年龄计数器，对象在 Eden 出生并经过 Minor GC 依然存活，将移动到 Survivor 中，年龄就增加 1 岁，增加到一定年龄则移动到老年代中。</p>
+<p>   -XX:MaxTenuringThreshold 用来定义年龄的阈值。</p>
+<h3 id="4-动态对象年龄判定"><a href="#4-动态对象年龄判定" class="headerlink" title="4.动态对象年龄判定"></a>4.动态对象年龄判定</h3><p>   虚拟机并不是永远地要求对象的年龄必须达到 MaxTenuringThreshold 才能晋升老年代，如果在 Survivor 中相同年龄所有对象大小的总和大于 Survivor 空间的一半，则年龄大于或等于该年龄的对象可以直接进入老年代，无需等到 MaxTenuringThreshold 中要求的年龄。</p>
+<h3 id="5-空间分配担保"><a href="#5-空间分配担保" class="headerlink" title="5.空间分配担保"></a>5.空间分配担保</h3><p>   在发生 Minor GC 之前，虚拟机先检查老年代最大可用的连续空间是否大于新生代所有对象总空间，如果条件成立的话，那么 Minor GC 可以确认是安全的。</p>
+<p>   如果不成立的话虚拟机会查看 HandlePromotionFailure 设置值是否允许担保失败，如果允许那么就会继续检查老年代最大可用的连续空间是否大于历次晋升到老年代对象的平均大小，如果大于，将尝试着进行一次 Minor GC；如果小于，或者 HandlePromotionFailure 设置不允许冒险，那么就要进行一次 Full GC。</p>
+<h2 id="Full-GC-的触发条件"><a href="#Full-GC-的触发条件" class="headerlink" title="Full GC 的触发条件"></a>Full GC 的触发条件</h2><p>   对于 Minor GC，其触发条件非常简单，当 Eden 空间满时，就将触发一次 Minor GC。而 Full GC 则相对复杂，有以下条件： </p>
+<h5 id="1-调用-System-gc"><a href="#1-调用-System-gc" class="headerlink" title="1.调用 System.gc()"></a>1.调用 System.gc()</h5><p>   只是建议虚拟机执行 Full GC，<strong>但是虚拟机不一定真正去执行</strong>。不建议使用这种方式，而是让虚拟机管理内存。</p>
+<h3 id="2-老年代空间不足"><a href="#2-老年代空间不足" class="headerlink" title="2.老年代空间不足"></a>2.老年代空间不足</h3><p>   老年代空间不足的常见场景为前文所讲的大对象直接进入老年代、长期存活的对象进入老年代等。</p>
+<p>   为了避免以上原因引起的 Full GC，应当尽量不要创建过大的对象以及数组。除此之外，可以通过 -Xmn 虚拟机参数<strong>调大新生代的大小</strong>，让对象尽量在新生代被回收掉，不进入老年代。还可以通过 -XX:MaxTenuringThreshold <strong>调大对象进入老年代的年龄</strong>，让对象在新生代多存活一段时间。</p>
+<h3 id="3-空间分配担保失败"><a href="#3-空间分配担保失败" class="headerlink" title="3.空间分配担保失败"></a>3.空间分配担保失败</h3><p>   使用复制算法的 Minor GC 需要老年代的内存空间作担保，如果担保失败会执行一次 Full GC。   </p>
+<p>   ####4.JDK 1.7 及以前的永久代空间不足<br>   在 JDK 1.7 及以前，HotSpot 虚拟机中的方法区是用永久代实现的，永久代中存放的为一些 Class 的信息、常量、静态变量等数据。</p>
+<p>   当系统中要加载的类、反射的类和调用的方法较多时，永久代可能会被占满，在未配置为采用 CMS GC 的情况下也会执行 Full GC。如果经过 Full GC 仍然回收不了，那么虚拟机会抛出 java.lang.OutOfMemoryError。</p>
+<p>   为避免以上原因引起的 Full GC，可采用的方法为增大永久代空间或转为使用 CMS GC。</p>
+<h3 id="5-Concurrent-Mode-Failure"><a href="#5-Concurrent-Mode-Failure" class="headerlink" title="5.Concurrent Mode Failure"></a>5.Concurrent Mode Failure</h3><p>   执行 CMS GC 的过程中同时有对象要放入老年代，而此时老年代空间不足（可能是 GC 过程中浮动垃圾过多导致暂时性的空间不足），便会报 Concurrent Mode Failure 错误，并触发 Full GC。</p>
+<h1 id="五：类加载机制"><a href="#五：类加载机制" class="headerlink" title="五：类加载机制"></a>五：类加载机制</h1><p>类是在运行期间第一次使用时动态加载的，而不是编译时期一次性加载。因为如果在编译时期一次性加载，那么会占用很多的内存。</p>
+<h2 id="类的生命周期"><a href="#类的生命周期" class="headerlink" title="类的生命周期"></a>类的生命周期</h2><p><img src="/uploads/java/jvm/%E7%B1%BB%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.jpg" alt="类生命周期">   </p>
+<h2 id="类加载过程"><a href="#类加载过程" class="headerlink" title="类加载过程"></a>类加载过程</h2><p>   ####加载<br>   查找并加载类的二进制数据加载时类加载过程的第一个阶段，在加载阶段，虚拟机需要完成以下三件事情： </p>
+<ul>
+<li><p>通过一个类的全限定名来获取其定义的二进制字节流。</p>
+</li>
+<li><p>将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构。</p>
+</li>
+<li><p>在Java堆中生成一个代表这个类的 java.lang.Class对象，作为对方法区中这些数据的访问入口。</p>
+<p>相对于类加载的其他阶段而言，加载阶段（准确地说，是加载阶段获取类的二进制字节流的动作）是可控性最强的阶段，因为开发人员既可以使用系统提供的类加载器来完成加载，也可以自定义自己的类加载器来完成加载。</p>
+<p>加载阶段完成后，虚拟机外部的二进制字节流就按照虚拟机所需的格式存储在方法区之中，而且在Java堆中也创建一个 java.lang.Class类的对象，这样便可以通过该对象访问方法区中的这些数据。</p>
+<h3 id="验证：确保被加载的类的正确性"><a href="#验证：确保被加载的类的正确性" class="headerlink" title="验证：确保被加载的类的正确性"></a>验证：确保被加载的类的正确性</h3><p>验证是连接阶段的第一步，目的是保证加载的类符合当前虚拟机的要求。验证阶段大致分四步：</p>
+</li>
+<li><p>文件格式验证：验证字节流是否符合Class文件格式的规范；例如：是否以 0xCAFEBABE开头、主次版本号是否在当前虚拟机的处理范围之内、常量池中的常量是否有不被支持的类型。</p>
+</li>
+<li><p>元数据验证：对字节码描述的信息进行语义分析（注意：对比javac编译阶段的语义分析），以保证其描述的信息符合Java语言规范的要求；例如：这个类是否有父类，除了 java.lang.Object之外。</p>
+</li>
+<li><p>字节码验证：通过数据流和控制流分析，确定程序语义是合法的、符合逻辑的。</p>
+</li>
+<li><p>符号引用验证：确保解析动作能正确执行。</p>
+<p>验证阶段是非常重要的，但不是必须的，它对程序运行期没有影响，如果所引用的类经过反复验证，那么可以考虑采用 -Xverifynone参数来关闭大部分的类验证措施，以缩短虚拟机类加载的时间。</p>
+<h3 id="准备：为类的静态变量分配内存，初始化默认值-类型默认值-不是程序赋值"><a href="#准备：为类的静态变量分配内存，初始化默认值-类型默认值-不是程序赋值" class="headerlink" title="准备：为类的静态变量分配内存，初始化默认值 类型默认值 不是程序赋值"></a>准备：为<strong>类的静态变量</strong>分配内存，初始化默认值 类型默认值 不是程序赋值</h3><p>准备阶段是正式为类变量分配内存并设置类变量初始值的阶段，这些内存都将在方法区中分配。对于该阶段有以下几点需要注意：</p>
+</li>
+<li><p>这时候进行内存分配的仅包括类变量（static），而不包括实例变量，实例变量会在对象实例化时随着对象一块分配在Java堆中。</p>
+</li>
+<li><p>这里所设置的初始值通常情况下是数据类型默认的零值（如0、0L、null、false等），而不是被在Java代码中被显式地赋予的值。</p>
+</li>
+<li><p>如果类字段的字段属性表中存在 ConstantValue属性，即同时被final和static修饰，那么在准备阶段变量value就会被初始化为ConstValue属性所指定的值。</p>
+<h3 id="解析：把类中的符号引用转换为直接引用"><a href="#解析：把类中的符号引用转换为直接引用" class="headerlink" title="解析：把类中的符号引用转换为直接引用"></a>解析：把类中的符号引用转换为直接引用</h3><p>解析阶段是虚拟机将常量池内的符号引用替换为直接引用的过程，解析动作主要针对类或接口、字段、类方法、接口方法、方法类型、方法句柄和调用点限定符7类符号引用进行。符号引用就是一组符号来描述目标，可以是任何字面量。</p>
+<p>直接引用就是直接指向目标的指针、相对偏移量或一个间接定位到目标的句柄。</p>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化 "></a>初始化 <clinit></h3><p>初始化，为类的静态变量赋予正确的初始值，JVM负责对类进行初始化，主要对类变量进行初始化。在Java中对类变量进行初始值设定有两种方式：</p>
+</li>
+<li><p>声明类变量是指定初始值</p>
+</li>
+<li><p>使用静态代码块为类变量指定初始值</p>
+<p>初始化步骤：</p>
+</li>
+<li><p>假如这个类还没有被加载和连接，则程序先加载并连接该类</p>
+</li>
+<li><p>假如该类的直接父类还没有被初始化，则先初始化其直接父类</p>
+</li>
+<li><p>假如类中有初始化语句，则系统依次执行这些初始化语句</p>
+<p>类初始化时机（主动，被动）</p>
+<p>只有当对类的主动使用的时候才会导致类的初始化，类的主动使用包括以下六种：</p>
+</li>
+<li><p>创建类的实例，也就是new的方式 </p>
+</li>
+<li><p>反射（如 Class.forName(“com.Test”)</p>
+</li>
+<li><p>访问某个类或接口的静态变量，或者对该静态变量赋值</p>
+</li>
+<li><p>调用类的静态方法</p>
+</li>
+<li><p>初始化某个类的子类，则其父类也会被初始化</p>
+</li>
+<li><p>Java虚拟机启动时被标明为启动类的类（ JavaTest），直接使用 java.exe命令来运行某个主类</p>
+<p>被动引用的常见例子包括：</p>
+</li>
+<li><p>通过子类引用父类的静态字段，不会导致子类初始化。 </p>
+<blockquote>
+<p>System.out.println(SubClass.value);  // value 字段在 SuperClass 中定义</p>
+</blockquote>
+</li>
+<li><p>通过数组定义来引用类，不会触发此类的初始化。该过程会对数组类进行初始化，数组类是一个由虚拟机自动生成的、直接继承自 Object 的子类，其中包含了数组的属性和方法。</p>
+<blockquote>
+<p>SuperClass[] sca = new SuperClass[10];</p>
+</blockquote>
+</li>
+<li><p>常量在编译阶段会存入调用类的常量池中，本质上并没有直接引用到定义常量的类，因此不会触发定义常量的类的初始化。</p>
+<blockquote>
+<p>System.out.println(ConstClass.HELLOWORLD);</p>
+</blockquote>
+<h3 id="结束生命周期"><a href="#结束生命周期" class="headerlink" title="结束生命周期"></a>结束生命周期</h3></li>
+<li><p>执行了System.exit()方法</p>
+</li>
+<li><p>程序正常执行结束</p>
+</li>
+<li><p>程序在执行过程中遇到了异常或错误而异常终止</p>
+</li>
+<li><p>由于操作系统出现错误而导致Java虚拟机进程终止</p>
+</li>
+</ul>
+<h2 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h2><h2 id="类加载机制"><a href="#类加载机制" class="headerlink" title="类加载机制"></a>类加载机制</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://marchnineteen.github.io/2018/10/31/java/jvm/jvm(1)/" data-id="ckam2zs2d002gmeq3264o8g2i" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/blog/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/blog/">1</a><a class="page-number" href="/blog/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/blog/page/4/">4</a><a class="page-number" href="/blog/page/5/">5</a><a class="extend next" rel="next" href="/blog/page/4/">Next &amp;raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/JVM/">JVM</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/JavaSE/">JavaSE</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/active/">active</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/cache/">cache</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/database/">database</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/datastructure/">datastructure</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/java-design-patterns/">java-design-patterns</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/linux-command/">linux-command</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/nginx/">nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/other/">other</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/servlet/">servlet</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/spring/">spring</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/tool/">tool</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">日常问题记录</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/02/">February 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2020/04/10/other/hangzhoumetro2025/">杭州地铁规划2025</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/01/11/java/javase/streamApiAction/">java 1.8  steam流操作</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2019/12/20/active/miaosha/">秒杀场景</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2019/12/06/spring/beanLifeCycle/">Spring Bean 生命周期</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2019/12/06/spring/springLoadXml/">Spring 加载XML文件的六种方式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Marcher<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+
+  
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
