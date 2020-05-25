@@ -25,6 +25,7 @@ after_script:   # 最后执行的命令
   - git commit -m "代码是自动部署的哈"
   - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" gh-pages:gh-pages
 
+
 branches:
   only:
     - master # 触发持续集成的分支
