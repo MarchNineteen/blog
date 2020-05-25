@@ -19,8 +19,8 @@ script:
 after_script:   # 最后执行的命令
   - cd ./public
   - git init
-  - git config user.name "xininn"
-  - git config user.email "850907478@qq.com"
+  - git config user.name "MarchNineteen"
+  - git config user.email "1501987783@qq.com"
   - git add .
   - git commit -m "代码是自动部署的哈"
   - git push --force --quiet "https://${new}@${GH_REF}" master:gh-pages
