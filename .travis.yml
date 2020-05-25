@@ -31,4 +31,4 @@ branches:
 
 env:
   global:
-    - GH_REF: git@github.com:MarchNineteen/blog.git
+    - GH_REF: github.com/MarchNineteen/blog.git
