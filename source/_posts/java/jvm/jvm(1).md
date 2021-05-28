@@ -133,11 +133,16 @@ categories: [JVM]
     obj = null;  // 使对象只被软引用关联
 
    ### 4.虚引用
-   被弱引用关联的对象一定会被回收，也就是说它只能存活到下一次垃圾回收发生之前。使用 WeakReference 类来实现弱引用。
+   又称为幽灵引用或者幻影引用，一个对象是否有虚引用的存在，不会对其生存时间造成影响，也无法通过虚引用得到一个对象。
+   
+   为一个对象设置虚引用的唯一目的是能在这个对象被回收时收到一个系统通知。
+   
+   使用 PhantomReference 来创建虚引用。
+   
         
     Object obj = new Object();
-    SoftReference<Object> sf = new SoftReference<Object>(obj);
-    obj = null;  // 使对象只被软引用关联
+    PhantomReference<Object> pf = new PhantomReference<Object>(obj, null);
+    obj = null;
 
 ## 垃圾收集算法（怎么回收）
 

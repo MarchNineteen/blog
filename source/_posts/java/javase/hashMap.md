@@ -9,6 +9,7 @@ categories: [JavaSE]
 [jdk1.7死环](https://www.cnblogs.com/Hangtutu/p/9251999.html)
 [jdk1.7线程不安全](https://juejin.im/post/5a66a08d5188253dc3321da0)
 [jdk1.8扩容核心-链表复制处理](https://blog.csdn.net/u013494765/article/details/77837338)
+[HashMap1.8源码解析：resize方法](https://blog.csdn.net/weixin_42340670/article/details/80503517?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-3&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-3)
 
 # 继承关系
 
